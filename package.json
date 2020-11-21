@@ -6,6 +6,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --no-notify --respawn --transpile-only src/server.ts",
+    "build": "tsc -p .",
+    "start": "node dist/server.js",
     "generate:nexus": "ts-node --transpile-only src/schema",
     "generate:prisma": "prisma generate",
     "migrate:save": "prisma migrate save --experimental",
