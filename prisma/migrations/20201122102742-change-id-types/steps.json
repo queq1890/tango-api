@@ -1,0 +1,150 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "UpdateField",
+      "model": "WordBook",
+      "field": "id",
+      "type": "Int"
+    },
+    {
+      "tag": "UpdateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "WordBook",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "newValue": "autoincrement()"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "WordDeck",
+      "field": "id",
+      "type": "Int"
+    },
+    {
+      "tag": "UpdateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "WordDeck",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "newValue": "autoincrement()"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "WordDeck",
+      "field": "wordBook",
+      "arity": "Required"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "WordDeck",
+      "field": "wordBookId",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Word",
+      "field": "id",
+      "type": "Int"
+    },
+    {
+      "tag": "UpdateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Word",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "newValue": "autoincrement()"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Word",
+      "field": "wordDeck",
+      "arity": "Required"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Word",
+      "field": "wordDeckId",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Description",
+      "field": "id",
+      "type": "Int"
+    },
+    {
+      "tag": "UpdateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Description",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "newValue": "autoincrement()"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Description",
+      "field": "word",
+      "arity": "Required"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Description",
+      "field": "wordId",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Example",
+      "field": "id",
+      "type": "Int"
+    },
+    {
+      "tag": "UpdateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Example",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "newValue": "autoincrement()"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Example",
+      "field": "descriptionId",
+      "type": "Int"
+    }
+  ]
+}

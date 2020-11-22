@@ -1,3 +1,6 @@
 # Prisma Migrate lockfile v1
 
 20201121091628-init
+20201122100053-add-word-types
+20201122100236-add-dates-to-word-types
+20201122102742-change-id-types

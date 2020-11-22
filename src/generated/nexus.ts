@@ -27,6 +27,12 @@ declare global {
 }
 
 export interface NexusGenInputs {
+  DescriptionWhereUniqueInput: { // input type
+    id?: number | null; // Int
+  }
+  ExampleWhereUniqueInput: { // input type
+    id?: number | null; // Int
+  }
   UserCreateInput: { // input type
     email: string; // String!
     name?: string | null; // String
@@ -38,9 +44,16 @@ export interface NexusGenInputs {
     name?: string | null; // String
     statusMessage?: string | null; // String
   }
+  WordDeckWhereUniqueInput: { // input type
+    id?: number | null; // Int
+  }
+  WordWhereUniqueInput: { // input type
+    id?: number | null; // Int
+  }
 }
 
 export interface NexusGenEnums {
+  PartsOfSpeech: "ADJECTIVE" | "ADVERB" | "CONJUNCTION" | "INTERJUNCTION" | "NOUN" | "PREPOSITION" | "PRONOUN" | "VERB"
 }
 
 export interface NexusGenScalars {
@@ -59,6 +72,24 @@ export interface NexusGenRootTypes {
     token?: string | null; // String
     user?: NexusGenRootTypes['User'] | null; // User
   }
+  Description: { // root type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    id: number; // Int!
+    meanings: string[]; // [String!]!
+    partsOfSpeech: NexusGenEnums['PartsOfSpeech']; // PartsOfSpeech!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+    wordId: number; // Int!
+  }
+  Example: { // root type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    descriptionId: number; // Int!
+    id: number; // Int!
+    ja: string; // String!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+    vn: string; // String!
+  }
   Mutation: {};
   Query: {};
   Subscription: {};
@@ -70,11 +101,40 @@ export interface NexusGenRootTypes {
     name?: string | null; // String
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
   }
+  Word: { // root type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    id: number; // Int!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+    wordDeckId: number; // Int!
+  }
+  WordBook: { // root type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    id: number; // Int!
+    summary: string; // String!
+    title: string; // String!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+  }
+  WordDeck: { // root type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    id: number; // Int!
+    summary: string; // String!
+    title: string; // String!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+    wordBookId: number; // Int!
+  }
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
+  DescriptionWhereUniqueInput: NexusGenInputs['DescriptionWhereUniqueInput'];
+  ExampleWhereUniqueInput: NexusGenInputs['ExampleWhereUniqueInput'];
   UserCreateInput: NexusGenInputs['UserCreateInput'];
   UserUpdateInput: NexusGenInputs['UserUpdateInput'];
+  WordDeckWhereUniqueInput: NexusGenInputs['WordDeckWhereUniqueInput'];
+  WordWhereUniqueInput: NexusGenInputs['WordWhereUniqueInput'];
+  PartsOfSpeech: NexusGenEnums['PartsOfSpeech'];
   String: NexusGenScalars['String'];
   Int: NexusGenScalars['Int'];
   Float: NexusGenScalars['Float'];
@@ -89,6 +149,27 @@ export interface NexusGenFieldTypes {
   AuthPayload: { // field return type
     token: string | null; // String
     user: NexusGenRootTypes['User'] | null; // User
+  }
+  Description: { // field return type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    deletedAt: NexusGenScalars['DateTime'] | null; // DateTime
+    examples: NexusGenRootTypes['Example'][]; // [Example!]!
+    id: number; // Int!
+    meanings: string[]; // [String!]!
+    partsOfSpeech: NexusGenEnums['PartsOfSpeech']; // PartsOfSpeech!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+    word: NexusGenRootTypes['Word']; // Word!
+    wordId: number; // Int!
+  }
+  Example: { // field return type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    deletedAt: NexusGenScalars['DateTime'] | null; // DateTime
+    description: NexusGenRootTypes['Description']; // Description!
+    descriptionId: number; // Int!
+    id: number; // Int!
+    ja: string; // String!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+    vn: string; // String!
   }
   Mutation: { // field return type
     signIn: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
@@ -111,12 +192,62 @@ export interface NexusGenFieldTypes {
     name: string | null; // String
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
   }
+  Word: { // field return type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    deletedAt: NexusGenScalars['DateTime'] | null; // DateTime
+    descriptions: NexusGenRootTypes['Description'][]; // [Description!]!
+    id: number; // Int!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+    wordDeck: NexusGenRootTypes['WordDeck']; // WordDeck!
+    wordDeckId: number; // Int!
+  }
+  WordBook: { // field return type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    deletedAt: NexusGenScalars['DateTime'] | null; // DateTime
+    id: number; // Int!
+    summary: string; // String!
+    title: string; // String!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+    wordDecks: NexusGenRootTypes['WordDeck'][]; // [WordDeck!]!
+  }
+  WordDeck: { // field return type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    deletedAt: NexusGenScalars['DateTime'] | null; // DateTime
+    id: number; // Int!
+    summary: string; // String!
+    title: string; // String!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+    wordBook: NexusGenRootTypes['WordBook']; // WordBook!
+    wordBookId: number; // Int!
+    words: NexusGenRootTypes['Word'][]; // [Word!]!
+  }
 }
 
 export interface NexusGenFieldTypeNames {
   AuthPayload: { // field return type name
     token: 'String'
     user: 'User'
+  }
+  Description: { // field return type name
+    createdAt: 'DateTime'
+    deletedAt: 'DateTime'
+    examples: 'Example'
+    id: 'Int'
+    meanings: 'String'
+    partsOfSpeech: 'PartsOfSpeech'
+    updatedAt: 'DateTime'
+    word: 'Word'
+    wordId: 'Int'
+  }
+  Example: { // field return type name
+    createdAt: 'DateTime'
+    deletedAt: 'DateTime'
+    description: 'Description'
+    descriptionId: 'Int'
+    id: 'Int'
+    ja: 'String'
+    updatedAt: 'DateTime'
+    vn: 'String'
   }
   Mutation: { // field return type name
     signIn: 'AuthPayload'
@@ -139,9 +270,46 @@ export interface NexusGenFieldTypeNames {
     name: 'String'
     updatedAt: 'DateTime'
   }
+  Word: { // field return type name
+    createdAt: 'DateTime'
+    deletedAt: 'DateTime'
+    descriptions: 'Description'
+    id: 'Int'
+    updatedAt: 'DateTime'
+    wordDeck: 'WordDeck'
+    wordDeckId: 'Int'
+  }
+  WordBook: { // field return type name
+    createdAt: 'DateTime'
+    deletedAt: 'DateTime'
+    id: 'Int'
+    summary: 'String'
+    title: 'String'
+    updatedAt: 'DateTime'
+    wordDecks: 'WordDeck'
+  }
+  WordDeck: { // field return type name
+    createdAt: 'DateTime'
+    deletedAt: 'DateTime'
+    id: 'Int'
+    summary: 'String'
+    title: 'String'
+    updatedAt: 'DateTime'
+    wordBook: 'WordBook'
+    wordBookId: 'Int'
+    words: 'Word'
+  }
 }
 
 export interface NexusGenArgTypes {
+  Description: {
+    examples: { // args
+      after?: NexusGenInputs['ExampleWhereUniqueInput'] | null; // ExampleWhereUniqueInput
+      before?: NexusGenInputs['ExampleWhereUniqueInput'] | null; // ExampleWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+    }
+  }
   Mutation: {
     signIn: { // args
       email: string; // String!
@@ -162,6 +330,30 @@ export interface NexusGenArgTypes {
       userId: string; // String!
     }
   }
+  Word: {
+    descriptions: { // args
+      after?: NexusGenInputs['DescriptionWhereUniqueInput'] | null; // DescriptionWhereUniqueInput
+      before?: NexusGenInputs['DescriptionWhereUniqueInput'] | null; // DescriptionWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+    }
+  }
+  WordBook: {
+    wordDecks: { // args
+      after?: NexusGenInputs['WordDeckWhereUniqueInput'] | null; // WordDeckWhereUniqueInput
+      before?: NexusGenInputs['WordDeckWhereUniqueInput'] | null; // WordDeckWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+    }
+  }
+  WordDeck: {
+    words: { // args
+      after?: NexusGenInputs['WordWhereUniqueInput'] | null; // WordWhereUniqueInput
+      before?: NexusGenInputs['WordWhereUniqueInput'] | null; // WordWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+    }
+  }
 }
 
 export interface NexusGenAbstractResolveReturnTypes {
@@ -169,11 +361,11 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "AuthPayload" | "Mutation" | "Query" | "Subscription" | "User";
+export type NexusGenObjectNames = "AuthPayload" | "Description" | "Example" | "Mutation" | "Query" | "Subscription" | "User" | "Word" | "WordBook" | "WordDeck";
 
-export type NexusGenInputNames = "UserCreateInput" | "UserUpdateInput";
+export type NexusGenInputNames = "DescriptionWhereUniqueInput" | "ExampleWhereUniqueInput" | "UserCreateInput" | "UserUpdateInput" | "WordDeckWhereUniqueInput" | "WordWhereUniqueInput";
 
-export type NexusGenEnumNames = never;
+export type NexusGenEnumNames = "PartsOfSpeech";
 
 export type NexusGenInterfaceNames = never;
 

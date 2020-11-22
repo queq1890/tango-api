@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -33,7 +33,7 @@ model User {
 }
 
 model WordBook {
-  id        Int        @id @default(autoincrement())
+  id        String     @id @default(cuid())
   title     String
   summary   String
   wordDecks WordDeck[]
@@ -43,46 +43,48 @@ model WordBook {
 }
 
 model WordDeck {
-  id         Int       @id @default(autoincrement())
+  id         String    @id @default(cuid())
   title      String
   summary    String
   words      Word[]
-  wordBook   WordBook  @relation(fields: [wordBookId], references: [id])
-  wordBookId Int
+  wordBook   WordBook? @relation(fields: [wordBookId], references: [id])
+  wordBookId String?
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @default(now())
   deletedAt  DateTime?
 }
 
 model Word {
-  id           Int           @id @default(autoincrement())
+  id           String        @id @default(cuid())
   descriptions Description[]
-  wordDeck     WordDeck      @relation(fields: [wordDeckId], references: [id])
-  wordDeckId   Int
+  wordDeck     WordDeck?     @relation(fields: [wordDeckId], references: [id])
+  wordDeckId   String?
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @default(now())
   deletedAt    DateTime?
 }
 
 model Description {
-  id            Int           @id @default(autoincrement())
+  id            String        @id @default(cuid())
   partsOfSpeech PartsOfSpeech
   meanings      String[]
   examples      Example[]
-  word          Word          @relation(fields: [wordId], references: [id])
-  wordId        Int
+  word          Word?         @relation(fields: [wordId], references: [id])
+  wordId        String?
   createdAt     DateTime      @default(now())
   updatedAt     DateTime      @default(now())
   deletedAt     DateTime?
+
 }
 
 model Example {
-  id            Int         @id @default(autoincrement())
+  id            String      @id @default(cuid())
   vn            String
   ja            String
   description   Description @relation(fields: [descriptionId], references: [id])
-  descriptionId Int
+  descriptionId String
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @default(now())
   deletedAt     DateTime?
+
 }

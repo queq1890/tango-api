@@ -14,10 +14,52 @@ scalar Date
 
 scalar DateTime
 
+type Description {
+  createdAt: DateTime!
+  deletedAt: DateTime
+  examples(after: ExampleWhereUniqueInput, before: ExampleWhereUniqueInput, first: Int, last: Int): [Example!]!
+  id: Int!
+  meanings: [String!]!
+  partsOfSpeech: PartsOfSpeech!
+  updatedAt: DateTime!
+  word: Word!
+  wordId: Int!
+}
+
+input DescriptionWhereUniqueInput {
+  id: Int
+}
+
+type Example {
+  createdAt: DateTime!
+  deletedAt: DateTime
+  description: Description!
+  descriptionId: Int!
+  id: Int!
+  ja: String!
+  updatedAt: DateTime!
+  vn: String!
+}
+
+input ExampleWhereUniqueInput {
+  id: Int
+}
+
 type Mutation {
   signIn(email: String!, password: String!): AuthPayload
   signUp(user: UserCreateInput): AuthPayload
   updateProfile(user: UserUpdateInput): User
+}
+
+enum PartsOfSpeech {
+  ADJECTIVE
+  ADVERB
+  CONJUNCTION
+  INTERJUNCTION
+  NOUN
+  PREPOSITION
+  PRONOUN
+  VERB
 }
 
 type Query {
@@ -53,4 +95,44 @@ input UserUpdateInput {
   email: String
   name: String
   statusMessage: String
+}
+
+type Word {
+  createdAt: DateTime!
+  deletedAt: DateTime
+  descriptions(after: DescriptionWhereUniqueInput, before: DescriptionWhereUniqueInput, first: Int, last: Int): [Description!]!
+  id: Int!
+  updatedAt: DateTime!
+  wordDeck: WordDeck!
+  wordDeckId: Int!
+}
+
+type WordBook {
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: Int!
+  summary: String!
+  title: String!
+  updatedAt: DateTime!
+  wordDecks(after: WordDeckWhereUniqueInput, before: WordDeckWhereUniqueInput, first: Int, last: Int): [WordDeck!]!
+}
+
+type WordDeck {
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: Int!
+  summary: String!
+  title: String!
+  updatedAt: DateTime!
+  wordBook: WordBook!
+  wordBookId: Int!
+  words(after: WordWhereUniqueInput, before: WordWhereUniqueInput, first: Int, last: Int): [Word!]!
+}
+
+input WordDeckWhereUniqueInput {
+  id: Int
+}
+
+input WordWhereUniqueInput {
+  id: Int
 }

@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum PartsOfSpeech {
+  NOUN
+  PRONOUN
+  ADJECTIVE
+  VERB
+  ADVERB
+  PREPOSITION
+  CONJUNCTION
+  INTERJUNCTION
+}
+
+model User {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  password  String
+  name      String?
+  nickname  String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now())
+  deletedAt DateTime?
+}
+
+model WordBook {
+  id        String     @id @default(cuid())
+  title     String
+  summary   String
+  wordDecks WordDeck[]
+}
+
+model WordDeck {
+  id         String    @id @default(cuid())
+  title      String
+  summary    String
+  words      Word[]
+  wordBook   WordBook? @relation(fields: [wordBookId], references: [id])
+  wordBookId String?
+}
+
+model Word {
+  id           String        @id @default(cuid())
+  descriptions Description[]
+  wordDeck     WordDeck?     @relation(fields: [wordDeckId], references: [id])
+  wordDeckId   String?
+}
+
+model Description {
+  id            String        @id @default(cuid())
+  partsOfSpeech PartsOfSpeech
+  meanings      String[]
+  examples      Example[]
+  word          Word?         @relation(fields: [wordId], references: [id])
+  wordId        String?
+}
+
+model Example {
+  id            String      @id @default(cuid())
+  vn            String
+  ja            String
+  description   Description @relation(fields: [descriptionId], references: [id])
+  descriptionId String
+}
