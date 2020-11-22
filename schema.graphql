@@ -14,6 +14,32 @@ scalar Date
 
 scalar DateTime
 
+input DateTimeFieldUpdateOperationsInput {
+  set: DateTime
+}
+
+input DateTimeFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeFilter
+  notIn: [DateTime!]
+}
+
+input DateTimeNullableFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeNullableFilter
+  notIn: [DateTime!]
+}
+
 type Description {
   createdAt: DateTime!
   deletedAt: DateTime
@@ -26,8 +52,168 @@ type Description {
   wordId: Int!
 }
 
+input DescriptionCreateInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  examples: ExampleCreateManyWithoutDescriptionInput
+  meanings: DescriptionCreatemeaningsInput
+  partsOfSpeech: PartsOfSpeech!
+  updatedAt: DateTime
+  word: WordCreateOneWithoutDescriptionsInput!
+}
+
+input DescriptionCreateManyWithoutWordInput {
+  connect: [DescriptionWhereUniqueInput!]
+  connectOrCreate: [DescriptionCreateOrConnectWithoutwordInput!]
+  create: [DescriptionCreateWithoutWordInput!]
+}
+
+input DescriptionCreatemeaningsInput {
+  set: [String!]!
+}
+
+input DescriptionCreateOneWithoutExamplesInput {
+  connect: DescriptionWhereUniqueInput
+  connectOrCreate: DescriptionCreateOrConnectWithoutexamplesInput
+  create: DescriptionCreateWithoutExamplesInput
+}
+
+input DescriptionCreateOrConnectWithoutexamplesInput {
+  create: DescriptionCreateWithoutExamplesInput!
+  where: DescriptionWhereUniqueInput!
+}
+
+input DescriptionCreateOrConnectWithoutwordInput {
+  create: DescriptionCreateWithoutWordInput!
+  where: DescriptionWhereUniqueInput!
+}
+
+input DescriptionCreateWithoutExamplesInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  meanings: DescriptionCreatemeaningsInput
+  partsOfSpeech: PartsOfSpeech!
+  updatedAt: DateTime
+  word: WordCreateOneWithoutDescriptionsInput!
+}
+
+input DescriptionCreateWithoutWordInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  examples: ExampleCreateManyWithoutDescriptionInput
+  meanings: DescriptionCreatemeaningsInput
+  partsOfSpeech: PartsOfSpeech!
+  updatedAt: DateTime
+}
+
+input DescriptionScalarWhereInput {
+  AND: [DescriptionScalarWhereInput!]
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  id: IntFilter
+  meanings: StringNullableListFilter
+  NOT: [DescriptionScalarWhereInput!]
+  OR: [DescriptionScalarWhereInput!]
+  partsOfSpeech: EnumPartsOfSpeechFilter
+  updatedAt: DateTimeFilter
+  wordId: IntFilter
+}
+
+input DescriptionUpdateInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  examples: ExampleUpdateManyWithoutDescriptionInput
+  meanings: DescriptionUpdatemeaningsInput
+  partsOfSpeech: EnumPartsOfSpeechFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  word: WordUpdateOneRequiredWithoutDescriptionsInput
+}
+
+input DescriptionUpdateManyMutationInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  meanings: DescriptionUpdatemeaningsInput
+  partsOfSpeech: EnumPartsOfSpeechFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input DescriptionUpdateManyWithoutWordInput {
+  connect: [DescriptionWhereUniqueInput!]
+  connectOrCreate: [DescriptionCreateOrConnectWithoutwordInput!]
+  create: [DescriptionCreateWithoutWordInput!]
+  delete: [DescriptionWhereUniqueInput!]
+  deleteMany: [DescriptionScalarWhereInput!]
+  disconnect: [DescriptionWhereUniqueInput!]
+  set: [DescriptionWhereUniqueInput!]
+  update: [DescriptionUpdateWithWhereUniqueWithoutWordInput!]
+  updateMany: [DescriptionUpdateManyWithWhereWithoutWordInput!]
+  upsert: [DescriptionUpsertWithWhereUniqueWithoutWordInput!]
+}
+
+input DescriptionUpdateManyWithWhereWithoutWordInput {
+  data: DescriptionUpdateManyMutationInput!
+  where: DescriptionScalarWhereInput!
+}
+
+input DescriptionUpdatemeaningsInput {
+  set: [String!]!
+}
+
+input DescriptionUpdateOneRequiredWithoutExamplesInput {
+  connect: DescriptionWhereUniqueInput
+  connectOrCreate: DescriptionCreateOrConnectWithoutexamplesInput
+  create: DescriptionCreateWithoutExamplesInput
+  update: DescriptionUpdateWithoutExamplesInput
+  upsert: DescriptionUpsertWithoutExamplesInput
+}
+
+input DescriptionUpdateWithoutExamplesInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  meanings: DescriptionUpdatemeaningsInput
+  partsOfSpeech: EnumPartsOfSpeechFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  word: WordUpdateOneRequiredWithoutDescriptionsInput
+}
+
+input DescriptionUpdateWithoutWordInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  examples: ExampleUpdateManyWithoutDescriptionInput
+  meanings: DescriptionUpdatemeaningsInput
+  partsOfSpeech: EnumPartsOfSpeechFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input DescriptionUpdateWithWhereUniqueWithoutWordInput {
+  data: DescriptionUpdateWithoutWordInput!
+  where: DescriptionWhereUniqueInput!
+}
+
+input DescriptionUpsertWithoutExamplesInput {
+  create: DescriptionCreateWithoutExamplesInput!
+  update: DescriptionUpdateWithoutExamplesInput!
+}
+
+input DescriptionUpsertWithWhereUniqueWithoutWordInput {
+  create: DescriptionCreateWithoutWordInput!
+  update: DescriptionUpdateWithoutWordInput!
+  where: DescriptionWhereUniqueInput!
+}
+
 input DescriptionWhereUniqueInput {
   id: Int
+}
+
+input EnumPartsOfSpeechFieldUpdateOperationsInput {
+  set: PartsOfSpeech
+}
+
+input EnumPartsOfSpeechFilter {
+  equals: PartsOfSpeech
+  in: [PartsOfSpeech!]
+  not: NestedEnumPartsOfSpeechFilter
+  notIn: [PartsOfSpeech!]
 }
 
 type Example {
@@ -41,14 +227,188 @@ type Example {
   vn: String!
 }
 
+input ExampleCreateInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  description: DescriptionCreateOneWithoutExamplesInput!
+  ja: String!
+  updatedAt: DateTime
+  vn: String!
+}
+
+input ExampleCreateManyWithoutDescriptionInput {
+  connect: [ExampleWhereUniqueInput!]
+  connectOrCreate: [ExampleCreateOrConnectWithoutdescriptionInput!]
+  create: [ExampleCreateWithoutDescriptionInput!]
+}
+
+input ExampleCreateOrConnectWithoutdescriptionInput {
+  create: ExampleCreateWithoutDescriptionInput!
+  where: ExampleWhereUniqueInput!
+}
+
+input ExampleCreateWithoutDescriptionInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  ja: String!
+  updatedAt: DateTime
+  vn: String!
+}
+
+input ExampleScalarWhereInput {
+  AND: [ExampleScalarWhereInput!]
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  descriptionId: IntFilter
+  id: IntFilter
+  ja: StringFilter
+  NOT: [ExampleScalarWhereInput!]
+  OR: [ExampleScalarWhereInput!]
+  updatedAt: DateTimeFilter
+  vn: StringFilter
+}
+
+input ExampleUpdateInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  description: DescriptionUpdateOneRequiredWithoutExamplesInput
+  ja: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  vn: StringFieldUpdateOperationsInput
+}
+
+input ExampleUpdateManyMutationInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  ja: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  vn: StringFieldUpdateOperationsInput
+}
+
+input ExampleUpdateManyWithoutDescriptionInput {
+  connect: [ExampleWhereUniqueInput!]
+  connectOrCreate: [ExampleCreateOrConnectWithoutdescriptionInput!]
+  create: [ExampleCreateWithoutDescriptionInput!]
+  delete: [ExampleWhereUniqueInput!]
+  deleteMany: [ExampleScalarWhereInput!]
+  disconnect: [ExampleWhereUniqueInput!]
+  set: [ExampleWhereUniqueInput!]
+  update: [ExampleUpdateWithWhereUniqueWithoutDescriptionInput!]
+  updateMany: [ExampleUpdateManyWithWhereWithoutDescriptionInput!]
+  upsert: [ExampleUpsertWithWhereUniqueWithoutDescriptionInput!]
+}
+
+input ExampleUpdateManyWithWhereWithoutDescriptionInput {
+  data: ExampleUpdateManyMutationInput!
+  where: ExampleScalarWhereInput!
+}
+
+input ExampleUpdateWithoutDescriptionInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  ja: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  vn: StringFieldUpdateOperationsInput
+}
+
+input ExampleUpdateWithWhereUniqueWithoutDescriptionInput {
+  data: ExampleUpdateWithoutDescriptionInput!
+  where: ExampleWhereUniqueInput!
+}
+
+input ExampleUpsertWithWhereUniqueWithoutDescriptionInput {
+  create: ExampleCreateWithoutDescriptionInput!
+  update: ExampleUpdateWithoutDescriptionInput!
+  where: ExampleWhereUniqueInput!
+}
+
 input ExampleWhereUniqueInput {
   id: Int
 }
 
+input IntFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntFilter
+  notIn: [Int!]
+}
+
 type Mutation {
+  createOneDescription(data: DescriptionCreateInput!): Description!
+  createOneExample(data: ExampleCreateInput!): Example!
+  createOneWord(data: WordCreateInput!): Word!
+  createOneWordBook(data: WordBookCreateInput!): WordBook!
+  createOneWordDeck(data: WordDeckCreateInput!): WordDeck!
   signIn(email: String!, password: String!): AuthPayload
   signUp(user: UserCreateInput): AuthPayload
+  updateOneDescription(data: DescriptionUpdateInput!, where: DescriptionWhereUniqueInput!): Description
+  updateOneExample(data: ExampleUpdateInput!, where: ExampleWhereUniqueInput!): Example
+  updateOneWord(data: WordUpdateInput!, where: WordWhereUniqueInput!): Word
+  updateOneWordBook(data: WordBookUpdateInput!, where: WordBookWhereUniqueInput!): WordBook
+  updateOneWordDeck(data: WordDeckUpdateInput!, where: WordDeckWhereUniqueInput!): WordDeck
   updateProfile(user: UserUpdateInput): User
+}
+
+input NestedDateTimeFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeFilter
+  notIn: [DateTime!]
+}
+
+input NestedDateTimeNullableFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeNullableFilter
+  notIn: [DateTime!]
+}
+
+input NestedEnumPartsOfSpeechFilter {
+  equals: PartsOfSpeech
+  in: [PartsOfSpeech!]
+  not: NestedEnumPartsOfSpeechFilter
+  notIn: [PartsOfSpeech!]
+}
+
+input NestedIntFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntFilter
+  notIn: [Int!]
+}
+
+input NestedStringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input NullableDateTimeFieldUpdateOperationsInput {
+  set: DateTime
 }
 
 enum PartsOfSpeech {
@@ -63,8 +423,41 @@ enum PartsOfSpeech {
 }
 
 type Query {
+  descriptions(after: DescriptionWhereUniqueInput, before: DescriptionWhereUniqueInput, first: Int, last: Int): [Description!]!
+  examples(after: ExampleWhereUniqueInput, before: ExampleWhereUniqueInput, first: Int, last: Int): [Example!]!
   me: User
   users: [User]
+  wordBooks(after: WordBookWhereUniqueInput, before: WordBookWhereUniqueInput, first: Int, last: Int): [WordBook!]!
+  wordDecks(after: WordDeckWhereUniqueInput, before: WordDeckWhereUniqueInput, first: Int, last: Int): [WordDeck!]!
+  words(after: WordWhereUniqueInput, before: WordWhereUniqueInput, first: Int, last: Int): [Word!]!
+}
+
+enum QueryMode {
+  default
+  insensitive
+}
+
+input StringFieldUpdateOperationsInput {
+  set: String
+}
+
+input StringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input StringNullableListFilter {
+  equals: [String!]
 }
 
 type Subscription {
@@ -102,6 +495,7 @@ type Word {
   deletedAt: DateTime
   descriptions(after: DescriptionWhereUniqueInput, before: DescriptionWhereUniqueInput, first: Int, last: Int): [Description!]!
   id: Int!
+  name: String!
   updatedAt: DateTime!
   wordDeck: WordDeck!
   wordDeckId: Int!
@@ -117,6 +511,115 @@ type WordBook {
   wordDecks(after: WordDeckWhereUniqueInput, before: WordDeckWhereUniqueInput, first: Int, last: Int): [WordDeck!]!
 }
 
+input WordBookCreateInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  summary: String!
+  title: String!
+  updatedAt: DateTime
+  wordDecks: WordDeckCreateManyWithoutWordBookInput
+}
+
+input WordBookCreateOneWithoutWordDecksInput {
+  connect: WordBookWhereUniqueInput
+  connectOrCreate: WordBookCreateOrConnectWithoutwordDecksInput
+  create: WordBookCreateWithoutWordDecksInput
+}
+
+input WordBookCreateOrConnectWithoutwordDecksInput {
+  create: WordBookCreateWithoutWordDecksInput!
+  where: WordBookWhereUniqueInput!
+}
+
+input WordBookCreateWithoutWordDecksInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  summary: String!
+  title: String!
+  updatedAt: DateTime
+}
+
+input WordBookUpdateInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  summary: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  wordDecks: WordDeckUpdateManyWithoutWordBookInput
+}
+
+input WordBookUpdateOneRequiredWithoutWordDecksInput {
+  connect: WordBookWhereUniqueInput
+  connectOrCreate: WordBookCreateOrConnectWithoutwordDecksInput
+  create: WordBookCreateWithoutWordDecksInput
+  update: WordBookUpdateWithoutWordDecksInput
+  upsert: WordBookUpsertWithoutWordDecksInput
+}
+
+input WordBookUpdateWithoutWordDecksInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  summary: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input WordBookUpsertWithoutWordDecksInput {
+  create: WordBookCreateWithoutWordDecksInput!
+  update: WordBookUpdateWithoutWordDecksInput!
+}
+
+input WordBookWhereUniqueInput {
+  id: Int
+}
+
+input WordCreateInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  descriptions: DescriptionCreateManyWithoutWordInput
+  name: String!
+  updatedAt: DateTime
+  wordDeck: WordDeckCreateOneWithoutWordsInput!
+}
+
+input WordCreateManyWithoutWordDeckInput {
+  connect: [WordWhereUniqueInput!]
+  connectOrCreate: [WordCreateOrConnectWithoutwordDeckInput!]
+  create: [WordCreateWithoutWordDeckInput!]
+}
+
+input WordCreateOneWithoutDescriptionsInput {
+  connect: WordWhereUniqueInput
+  connectOrCreate: WordCreateOrConnectWithoutdescriptionsInput
+  create: WordCreateWithoutDescriptionsInput
+}
+
+input WordCreateOrConnectWithoutdescriptionsInput {
+  create: WordCreateWithoutDescriptionsInput!
+  where: WordWhereUniqueInput!
+}
+
+input WordCreateOrConnectWithoutwordDeckInput {
+  create: WordCreateWithoutWordDeckInput!
+  where: WordWhereUniqueInput!
+}
+
+input WordCreateWithoutDescriptionsInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  name: String!
+  updatedAt: DateTime
+  wordDeck: WordDeckCreateOneWithoutWordsInput!
+}
+
+input WordCreateWithoutWordDeckInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  descriptions: DescriptionCreateManyWithoutWordInput
+  name: String!
+  updatedAt: DateTime
+}
+
 type WordDeck {
   createdAt: DateTime!
   deletedAt: DateTime
@@ -129,8 +632,235 @@ type WordDeck {
   words(after: WordWhereUniqueInput, before: WordWhereUniqueInput, first: Int, last: Int): [Word!]!
 }
 
+input WordDeckCreateInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  summary: String!
+  title: String!
+  updatedAt: DateTime
+  wordBook: WordBookCreateOneWithoutWordDecksInput!
+  words: WordCreateManyWithoutWordDeckInput
+}
+
+input WordDeckCreateManyWithoutWordBookInput {
+  connect: [WordDeckWhereUniqueInput!]
+  connectOrCreate: [WordDeckCreateOrConnectWithoutwordBookInput!]
+  create: [WordDeckCreateWithoutWordBookInput!]
+}
+
+input WordDeckCreateOneWithoutWordsInput {
+  connect: WordDeckWhereUniqueInput
+  connectOrCreate: WordDeckCreateOrConnectWithoutwordsInput
+  create: WordDeckCreateWithoutWordsInput
+}
+
+input WordDeckCreateOrConnectWithoutwordBookInput {
+  create: WordDeckCreateWithoutWordBookInput!
+  where: WordDeckWhereUniqueInput!
+}
+
+input WordDeckCreateOrConnectWithoutwordsInput {
+  create: WordDeckCreateWithoutWordsInput!
+  where: WordDeckWhereUniqueInput!
+}
+
+input WordDeckCreateWithoutWordBookInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  summary: String!
+  title: String!
+  updatedAt: DateTime
+  words: WordCreateManyWithoutWordDeckInput
+}
+
+input WordDeckCreateWithoutWordsInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  summary: String!
+  title: String!
+  updatedAt: DateTime
+  wordBook: WordBookCreateOneWithoutWordDecksInput!
+}
+
+input WordDeckScalarWhereInput {
+  AND: [WordDeckScalarWhereInput!]
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  id: IntFilter
+  NOT: [WordDeckScalarWhereInput!]
+  OR: [WordDeckScalarWhereInput!]
+  summary: StringFilter
+  title: StringFilter
+  updatedAt: DateTimeFilter
+  wordBookId: IntFilter
+}
+
+input WordDeckUpdateInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  summary: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  wordBook: WordBookUpdateOneRequiredWithoutWordDecksInput
+  words: WordUpdateManyWithoutWordDeckInput
+}
+
+input WordDeckUpdateManyMutationInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  summary: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input WordDeckUpdateManyWithoutWordBookInput {
+  connect: [WordDeckWhereUniqueInput!]
+  connectOrCreate: [WordDeckCreateOrConnectWithoutwordBookInput!]
+  create: [WordDeckCreateWithoutWordBookInput!]
+  delete: [WordDeckWhereUniqueInput!]
+  deleteMany: [WordDeckScalarWhereInput!]
+  disconnect: [WordDeckWhereUniqueInput!]
+  set: [WordDeckWhereUniqueInput!]
+  update: [WordDeckUpdateWithWhereUniqueWithoutWordBookInput!]
+  updateMany: [WordDeckUpdateManyWithWhereWithoutWordBookInput!]
+  upsert: [WordDeckUpsertWithWhereUniqueWithoutWordBookInput!]
+}
+
+input WordDeckUpdateManyWithWhereWithoutWordBookInput {
+  data: WordDeckUpdateManyMutationInput!
+  where: WordDeckScalarWhereInput!
+}
+
+input WordDeckUpdateOneRequiredWithoutWordsInput {
+  connect: WordDeckWhereUniqueInput
+  connectOrCreate: WordDeckCreateOrConnectWithoutwordsInput
+  create: WordDeckCreateWithoutWordsInput
+  update: WordDeckUpdateWithoutWordsInput
+  upsert: WordDeckUpsertWithoutWordsInput
+}
+
+input WordDeckUpdateWithoutWordBookInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  summary: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  words: WordUpdateManyWithoutWordDeckInput
+}
+
+input WordDeckUpdateWithoutWordsInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  summary: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  wordBook: WordBookUpdateOneRequiredWithoutWordDecksInput
+}
+
+input WordDeckUpdateWithWhereUniqueWithoutWordBookInput {
+  data: WordDeckUpdateWithoutWordBookInput!
+  where: WordDeckWhereUniqueInput!
+}
+
+input WordDeckUpsertWithoutWordsInput {
+  create: WordDeckCreateWithoutWordsInput!
+  update: WordDeckUpdateWithoutWordsInput!
+}
+
+input WordDeckUpsertWithWhereUniqueWithoutWordBookInput {
+  create: WordDeckCreateWithoutWordBookInput!
+  update: WordDeckUpdateWithoutWordBookInput!
+  where: WordDeckWhereUniqueInput!
+}
+
 input WordDeckWhereUniqueInput {
   id: Int
+}
+
+input WordScalarWhereInput {
+  AND: [WordScalarWhereInput!]
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  id: IntFilter
+  name: StringFilter
+  NOT: [WordScalarWhereInput!]
+  OR: [WordScalarWhereInput!]
+  updatedAt: DateTimeFilter
+  wordDeckId: IntFilter
+}
+
+input WordUpdateInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  descriptions: DescriptionUpdateManyWithoutWordInput
+  name: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  wordDeck: WordDeckUpdateOneRequiredWithoutWordsInput
+}
+
+input WordUpdateManyMutationInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input WordUpdateManyWithoutWordDeckInput {
+  connect: [WordWhereUniqueInput!]
+  connectOrCreate: [WordCreateOrConnectWithoutwordDeckInput!]
+  create: [WordCreateWithoutWordDeckInput!]
+  delete: [WordWhereUniqueInput!]
+  deleteMany: [WordScalarWhereInput!]
+  disconnect: [WordWhereUniqueInput!]
+  set: [WordWhereUniqueInput!]
+  update: [WordUpdateWithWhereUniqueWithoutWordDeckInput!]
+  updateMany: [WordUpdateManyWithWhereWithoutWordDeckInput!]
+  upsert: [WordUpsertWithWhereUniqueWithoutWordDeckInput!]
+}
+
+input WordUpdateManyWithWhereWithoutWordDeckInput {
+  data: WordUpdateManyMutationInput!
+  where: WordScalarWhereInput!
+}
+
+input WordUpdateOneRequiredWithoutDescriptionsInput {
+  connect: WordWhereUniqueInput
+  connectOrCreate: WordCreateOrConnectWithoutdescriptionsInput
+  create: WordCreateWithoutDescriptionsInput
+  update: WordUpdateWithoutDescriptionsInput
+  upsert: WordUpsertWithoutDescriptionsInput
+}
+
+input WordUpdateWithoutDescriptionsInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  wordDeck: WordDeckUpdateOneRequiredWithoutWordsInput
+}
+
+input WordUpdateWithoutWordDeckInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  descriptions: DescriptionUpdateManyWithoutWordInput
+  name: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input WordUpdateWithWhereUniqueWithoutWordDeckInput {
+  data: WordUpdateWithoutWordDeckInput!
+  where: WordWhereUniqueInput!
+}
+
+input WordUpsertWithoutDescriptionsInput {
+  create: WordCreateWithoutDescriptionsInput!
+  update: WordUpdateWithoutDescriptionsInput!
+}
+
+input WordUpsertWithWhereUniqueWithoutWordDeckInput {
+  create: WordCreateWithoutWordDeckInput!
+  update: WordUpdateWithoutWordDeckInput!
+  where: WordWhereUniqueInput!
 }
 
 input WordWhereUniqueInput {

@@ -33,6 +33,18 @@ export const UserUpdateInputType = inputObjectType({
 
 export const Mutation = mutationType({
   definition(t) {
+    t.crud.createOneWordBook();
+    t.crud.createOneWordDeck();
+    t.crud.createOneWord();
+    t.crud.createOneDescription();
+    t.crud.createOneExample();
+
+    t.crud.updateOneWordBook();
+    t.crud.updateOneWordDeck();
+    t.crud.updateOneWord();
+    t.crud.updateOneDescription();
+    t.crud.updateOneExample();
+
     t.field("signUp", {
       type: "AuthPayload",
       args: {

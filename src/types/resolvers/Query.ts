@@ -4,6 +4,12 @@ import { getUserId } from "../../utils";
 
 export const Query = queryType({
   definition(t) {
+    t.crud.wordBooks();
+    t.crud.wordDecks();
+    t.crud.words();
+    t.crud.examples();
+    t.crud.descriptions();
+
     t.field("me", {
       type: "User",
       nullable: true,

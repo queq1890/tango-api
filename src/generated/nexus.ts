@@ -27,11 +27,337 @@ declare global {
 }
 
 export interface NexusGenInputs {
+  DateTimeFieldUpdateOperationsInput: { // input type
+    set?: NexusGenScalars['DateTime'] | null; // DateTime
+  }
+  DateTimeFilter: { // input type
+    equals?: NexusGenScalars['DateTime'] | null; // DateTime
+    gt?: NexusGenScalars['DateTime'] | null; // DateTime
+    gte?: NexusGenScalars['DateTime'] | null; // DateTime
+    in?: NexusGenScalars['DateTime'][] | null; // [DateTime!]
+    lt?: NexusGenScalars['DateTime'] | null; // DateTime
+    lte?: NexusGenScalars['DateTime'] | null; // DateTime
+    not?: NexusGenInputs['NestedDateTimeFilter'] | null; // NestedDateTimeFilter
+    notIn?: NexusGenScalars['DateTime'][] | null; // [DateTime!]
+  }
+  DateTimeNullableFilter: { // input type
+    equals?: NexusGenScalars['DateTime'] | null; // DateTime
+    gt?: NexusGenScalars['DateTime'] | null; // DateTime
+    gte?: NexusGenScalars['DateTime'] | null; // DateTime
+    in?: NexusGenScalars['DateTime'][] | null; // [DateTime!]
+    lt?: NexusGenScalars['DateTime'] | null; // DateTime
+    lte?: NexusGenScalars['DateTime'] | null; // DateTime
+    not?: NexusGenInputs['NestedDateTimeNullableFilter'] | null; // NestedDateTimeNullableFilter
+    notIn?: NexusGenScalars['DateTime'][] | null; // [DateTime!]
+  }
+  DescriptionCreateInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    examples?: NexusGenInputs['ExampleCreateManyWithoutDescriptionInput'] | null; // ExampleCreateManyWithoutDescriptionInput
+    meanings?: NexusGenInputs['DescriptionCreatemeaningsInput'] | null; // DescriptionCreatemeaningsInput
+    partsOfSpeech: NexusGenEnums['PartsOfSpeech']; // PartsOfSpeech!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    word: NexusGenInputs['WordCreateOneWithoutDescriptionsInput']; // WordCreateOneWithoutDescriptionsInput!
+  }
+  DescriptionCreateManyWithoutWordInput: { // input type
+    connect?: NexusGenInputs['DescriptionWhereUniqueInput'][] | null; // [DescriptionWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['DescriptionCreateOrConnectWithoutwordInput'][] | null; // [DescriptionCreateOrConnectWithoutwordInput!]
+    create?: NexusGenInputs['DescriptionCreateWithoutWordInput'][] | null; // [DescriptionCreateWithoutWordInput!]
+  }
+  DescriptionCreateOneWithoutExamplesInput: { // input type
+    connect?: NexusGenInputs['DescriptionWhereUniqueInput'] | null; // DescriptionWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['DescriptionCreateOrConnectWithoutexamplesInput'] | null; // DescriptionCreateOrConnectWithoutexamplesInput
+    create?: NexusGenInputs['DescriptionCreateWithoutExamplesInput'] | null; // DescriptionCreateWithoutExamplesInput
+  }
+  DescriptionCreateOrConnectWithoutexamplesInput: { // input type
+    create: NexusGenInputs['DescriptionCreateWithoutExamplesInput']; // DescriptionCreateWithoutExamplesInput!
+    where: NexusGenInputs['DescriptionWhereUniqueInput']; // DescriptionWhereUniqueInput!
+  }
+  DescriptionCreateOrConnectWithoutwordInput: { // input type
+    create: NexusGenInputs['DescriptionCreateWithoutWordInput']; // DescriptionCreateWithoutWordInput!
+    where: NexusGenInputs['DescriptionWhereUniqueInput']; // DescriptionWhereUniqueInput!
+  }
+  DescriptionCreateWithoutExamplesInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    meanings?: NexusGenInputs['DescriptionCreatemeaningsInput'] | null; // DescriptionCreatemeaningsInput
+    partsOfSpeech: NexusGenEnums['PartsOfSpeech']; // PartsOfSpeech!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    word: NexusGenInputs['WordCreateOneWithoutDescriptionsInput']; // WordCreateOneWithoutDescriptionsInput!
+  }
+  DescriptionCreateWithoutWordInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    examples?: NexusGenInputs['ExampleCreateManyWithoutDescriptionInput'] | null; // ExampleCreateManyWithoutDescriptionInput
+    meanings?: NexusGenInputs['DescriptionCreatemeaningsInput'] | null; // DescriptionCreatemeaningsInput
+    partsOfSpeech: NexusGenEnums['PartsOfSpeech']; // PartsOfSpeech!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+  }
+  DescriptionCreatemeaningsInput: { // input type
+    set: string[]; // [String!]!
+  }
+  DescriptionScalarWhereInput: { // input type
+    AND?: NexusGenInputs['DescriptionScalarWhereInput'][] | null; // [DescriptionScalarWhereInput!]
+    createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    deletedAt?: NexusGenInputs['DateTimeNullableFilter'] | null; // DateTimeNullableFilter
+    id?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    meanings?: NexusGenInputs['StringNullableListFilter'] | null; // StringNullableListFilter
+    NOT?: NexusGenInputs['DescriptionScalarWhereInput'][] | null; // [DescriptionScalarWhereInput!]
+    OR?: NexusGenInputs['DescriptionScalarWhereInput'][] | null; // [DescriptionScalarWhereInput!]
+    partsOfSpeech?: NexusGenInputs['EnumPartsOfSpeechFilter'] | null; // EnumPartsOfSpeechFilter
+    updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    wordId?: NexusGenInputs['IntFilter'] | null; // IntFilter
+  }
+  DescriptionUpdateInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    examples?: NexusGenInputs['ExampleUpdateManyWithoutDescriptionInput'] | null; // ExampleUpdateManyWithoutDescriptionInput
+    meanings?: NexusGenInputs['DescriptionUpdatemeaningsInput'] | null; // DescriptionUpdatemeaningsInput
+    partsOfSpeech?: NexusGenInputs['EnumPartsOfSpeechFieldUpdateOperationsInput'] | null; // EnumPartsOfSpeechFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    word?: NexusGenInputs['WordUpdateOneRequiredWithoutDescriptionsInput'] | null; // WordUpdateOneRequiredWithoutDescriptionsInput
+  }
+  DescriptionUpdateManyMutationInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    meanings?: NexusGenInputs['DescriptionUpdatemeaningsInput'] | null; // DescriptionUpdatemeaningsInput
+    partsOfSpeech?: NexusGenInputs['EnumPartsOfSpeechFieldUpdateOperationsInput'] | null; // EnumPartsOfSpeechFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+  }
+  DescriptionUpdateManyWithWhereWithoutWordInput: { // input type
+    data: NexusGenInputs['DescriptionUpdateManyMutationInput']; // DescriptionUpdateManyMutationInput!
+    where: NexusGenInputs['DescriptionScalarWhereInput']; // DescriptionScalarWhereInput!
+  }
+  DescriptionUpdateManyWithoutWordInput: { // input type
+    connect?: NexusGenInputs['DescriptionWhereUniqueInput'][] | null; // [DescriptionWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['DescriptionCreateOrConnectWithoutwordInput'][] | null; // [DescriptionCreateOrConnectWithoutwordInput!]
+    create?: NexusGenInputs['DescriptionCreateWithoutWordInput'][] | null; // [DescriptionCreateWithoutWordInput!]
+    delete?: NexusGenInputs['DescriptionWhereUniqueInput'][] | null; // [DescriptionWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['DescriptionScalarWhereInput'][] | null; // [DescriptionScalarWhereInput!]
+    disconnect?: NexusGenInputs['DescriptionWhereUniqueInput'][] | null; // [DescriptionWhereUniqueInput!]
+    set?: NexusGenInputs['DescriptionWhereUniqueInput'][] | null; // [DescriptionWhereUniqueInput!]
+    update?: NexusGenInputs['DescriptionUpdateWithWhereUniqueWithoutWordInput'][] | null; // [DescriptionUpdateWithWhereUniqueWithoutWordInput!]
+    updateMany?: NexusGenInputs['DescriptionUpdateManyWithWhereWithoutWordInput'][] | null; // [DescriptionUpdateManyWithWhereWithoutWordInput!]
+    upsert?: NexusGenInputs['DescriptionUpsertWithWhereUniqueWithoutWordInput'][] | null; // [DescriptionUpsertWithWhereUniqueWithoutWordInput!]
+  }
+  DescriptionUpdateOneRequiredWithoutExamplesInput: { // input type
+    connect?: NexusGenInputs['DescriptionWhereUniqueInput'] | null; // DescriptionWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['DescriptionCreateOrConnectWithoutexamplesInput'] | null; // DescriptionCreateOrConnectWithoutexamplesInput
+    create?: NexusGenInputs['DescriptionCreateWithoutExamplesInput'] | null; // DescriptionCreateWithoutExamplesInput
+    update?: NexusGenInputs['DescriptionUpdateWithoutExamplesInput'] | null; // DescriptionUpdateWithoutExamplesInput
+    upsert?: NexusGenInputs['DescriptionUpsertWithoutExamplesInput'] | null; // DescriptionUpsertWithoutExamplesInput
+  }
+  DescriptionUpdateWithWhereUniqueWithoutWordInput: { // input type
+    data: NexusGenInputs['DescriptionUpdateWithoutWordInput']; // DescriptionUpdateWithoutWordInput!
+    where: NexusGenInputs['DescriptionWhereUniqueInput']; // DescriptionWhereUniqueInput!
+  }
+  DescriptionUpdateWithoutExamplesInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    meanings?: NexusGenInputs['DescriptionUpdatemeaningsInput'] | null; // DescriptionUpdatemeaningsInput
+    partsOfSpeech?: NexusGenInputs['EnumPartsOfSpeechFieldUpdateOperationsInput'] | null; // EnumPartsOfSpeechFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    word?: NexusGenInputs['WordUpdateOneRequiredWithoutDescriptionsInput'] | null; // WordUpdateOneRequiredWithoutDescriptionsInput
+  }
+  DescriptionUpdateWithoutWordInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    examples?: NexusGenInputs['ExampleUpdateManyWithoutDescriptionInput'] | null; // ExampleUpdateManyWithoutDescriptionInput
+    meanings?: NexusGenInputs['DescriptionUpdatemeaningsInput'] | null; // DescriptionUpdatemeaningsInput
+    partsOfSpeech?: NexusGenInputs['EnumPartsOfSpeechFieldUpdateOperationsInput'] | null; // EnumPartsOfSpeechFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+  }
+  DescriptionUpdatemeaningsInput: { // input type
+    set: string[]; // [String!]!
+  }
+  DescriptionUpsertWithWhereUniqueWithoutWordInput: { // input type
+    create: NexusGenInputs['DescriptionCreateWithoutWordInput']; // DescriptionCreateWithoutWordInput!
+    update: NexusGenInputs['DescriptionUpdateWithoutWordInput']; // DescriptionUpdateWithoutWordInput!
+    where: NexusGenInputs['DescriptionWhereUniqueInput']; // DescriptionWhereUniqueInput!
+  }
+  DescriptionUpsertWithoutExamplesInput: { // input type
+    create: NexusGenInputs['DescriptionCreateWithoutExamplesInput']; // DescriptionCreateWithoutExamplesInput!
+    update: NexusGenInputs['DescriptionUpdateWithoutExamplesInput']; // DescriptionUpdateWithoutExamplesInput!
+  }
   DescriptionWhereUniqueInput: { // input type
     id?: number | null; // Int
   }
+  EnumPartsOfSpeechFieldUpdateOperationsInput: { // input type
+    set?: NexusGenEnums['PartsOfSpeech'] | null; // PartsOfSpeech
+  }
+  EnumPartsOfSpeechFilter: { // input type
+    equals?: NexusGenEnums['PartsOfSpeech'] | null; // PartsOfSpeech
+    in?: NexusGenEnums['PartsOfSpeech'][] | null; // [PartsOfSpeech!]
+    not?: NexusGenInputs['NestedEnumPartsOfSpeechFilter'] | null; // NestedEnumPartsOfSpeechFilter
+    notIn?: NexusGenEnums['PartsOfSpeech'][] | null; // [PartsOfSpeech!]
+  }
+  ExampleCreateInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    description: NexusGenInputs['DescriptionCreateOneWithoutExamplesInput']; // DescriptionCreateOneWithoutExamplesInput!
+    ja: string; // String!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    vn: string; // String!
+  }
+  ExampleCreateManyWithoutDescriptionInput: { // input type
+    connect?: NexusGenInputs['ExampleWhereUniqueInput'][] | null; // [ExampleWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['ExampleCreateOrConnectWithoutdescriptionInput'][] | null; // [ExampleCreateOrConnectWithoutdescriptionInput!]
+    create?: NexusGenInputs['ExampleCreateWithoutDescriptionInput'][] | null; // [ExampleCreateWithoutDescriptionInput!]
+  }
+  ExampleCreateOrConnectWithoutdescriptionInput: { // input type
+    create: NexusGenInputs['ExampleCreateWithoutDescriptionInput']; // ExampleCreateWithoutDescriptionInput!
+    where: NexusGenInputs['ExampleWhereUniqueInput']; // ExampleWhereUniqueInput!
+  }
+  ExampleCreateWithoutDescriptionInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    ja: string; // String!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    vn: string; // String!
+  }
+  ExampleScalarWhereInput: { // input type
+    AND?: NexusGenInputs['ExampleScalarWhereInput'][] | null; // [ExampleScalarWhereInput!]
+    createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    deletedAt?: NexusGenInputs['DateTimeNullableFilter'] | null; // DateTimeNullableFilter
+    descriptionId?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    id?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    ja?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    NOT?: NexusGenInputs['ExampleScalarWhereInput'][] | null; // [ExampleScalarWhereInput!]
+    OR?: NexusGenInputs['ExampleScalarWhereInput'][] | null; // [ExampleScalarWhereInput!]
+    updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    vn?: NexusGenInputs['StringFilter'] | null; // StringFilter
+  }
+  ExampleUpdateInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    description?: NexusGenInputs['DescriptionUpdateOneRequiredWithoutExamplesInput'] | null; // DescriptionUpdateOneRequiredWithoutExamplesInput
+    ja?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    vn?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+  }
+  ExampleUpdateManyMutationInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    ja?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    vn?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+  }
+  ExampleUpdateManyWithWhereWithoutDescriptionInput: { // input type
+    data: NexusGenInputs['ExampleUpdateManyMutationInput']; // ExampleUpdateManyMutationInput!
+    where: NexusGenInputs['ExampleScalarWhereInput']; // ExampleScalarWhereInput!
+  }
+  ExampleUpdateManyWithoutDescriptionInput: { // input type
+    connect?: NexusGenInputs['ExampleWhereUniqueInput'][] | null; // [ExampleWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['ExampleCreateOrConnectWithoutdescriptionInput'][] | null; // [ExampleCreateOrConnectWithoutdescriptionInput!]
+    create?: NexusGenInputs['ExampleCreateWithoutDescriptionInput'][] | null; // [ExampleCreateWithoutDescriptionInput!]
+    delete?: NexusGenInputs['ExampleWhereUniqueInput'][] | null; // [ExampleWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['ExampleScalarWhereInput'][] | null; // [ExampleScalarWhereInput!]
+    disconnect?: NexusGenInputs['ExampleWhereUniqueInput'][] | null; // [ExampleWhereUniqueInput!]
+    set?: NexusGenInputs['ExampleWhereUniqueInput'][] | null; // [ExampleWhereUniqueInput!]
+    update?: NexusGenInputs['ExampleUpdateWithWhereUniqueWithoutDescriptionInput'][] | null; // [ExampleUpdateWithWhereUniqueWithoutDescriptionInput!]
+    updateMany?: NexusGenInputs['ExampleUpdateManyWithWhereWithoutDescriptionInput'][] | null; // [ExampleUpdateManyWithWhereWithoutDescriptionInput!]
+    upsert?: NexusGenInputs['ExampleUpsertWithWhereUniqueWithoutDescriptionInput'][] | null; // [ExampleUpsertWithWhereUniqueWithoutDescriptionInput!]
+  }
+  ExampleUpdateWithWhereUniqueWithoutDescriptionInput: { // input type
+    data: NexusGenInputs['ExampleUpdateWithoutDescriptionInput']; // ExampleUpdateWithoutDescriptionInput!
+    where: NexusGenInputs['ExampleWhereUniqueInput']; // ExampleWhereUniqueInput!
+  }
+  ExampleUpdateWithoutDescriptionInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    ja?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    vn?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+  }
+  ExampleUpsertWithWhereUniqueWithoutDescriptionInput: { // input type
+    create: NexusGenInputs['ExampleCreateWithoutDescriptionInput']; // ExampleCreateWithoutDescriptionInput!
+    update: NexusGenInputs['ExampleUpdateWithoutDescriptionInput']; // ExampleUpdateWithoutDescriptionInput!
+    where: NexusGenInputs['ExampleWhereUniqueInput']; // ExampleWhereUniqueInput!
+  }
   ExampleWhereUniqueInput: { // input type
     id?: number | null; // Int
+  }
+  IntFilter: { // input type
+    equals?: number | null; // Int
+    gt?: number | null; // Int
+    gte?: number | null; // Int
+    in?: number[] | null; // [Int!]
+    lt?: number | null; // Int
+    lte?: number | null; // Int
+    not?: NexusGenInputs['NestedIntFilter'] | null; // NestedIntFilter
+    notIn?: number[] | null; // [Int!]
+  }
+  NestedDateTimeFilter: { // input type
+    equals?: NexusGenScalars['DateTime'] | null; // DateTime
+    gt?: NexusGenScalars['DateTime'] | null; // DateTime
+    gte?: NexusGenScalars['DateTime'] | null; // DateTime
+    in?: NexusGenScalars['DateTime'][] | null; // [DateTime!]
+    lt?: NexusGenScalars['DateTime'] | null; // DateTime
+    lte?: NexusGenScalars['DateTime'] | null; // DateTime
+    not?: NexusGenInputs['NestedDateTimeFilter'] | null; // NestedDateTimeFilter
+    notIn?: NexusGenScalars['DateTime'][] | null; // [DateTime!]
+  }
+  NestedDateTimeNullableFilter: { // input type
+    equals?: NexusGenScalars['DateTime'] | null; // DateTime
+    gt?: NexusGenScalars['DateTime'] | null; // DateTime
+    gte?: NexusGenScalars['DateTime'] | null; // DateTime
+    in?: NexusGenScalars['DateTime'][] | null; // [DateTime!]
+    lt?: NexusGenScalars['DateTime'] | null; // DateTime
+    lte?: NexusGenScalars['DateTime'] | null; // DateTime
+    not?: NexusGenInputs['NestedDateTimeNullableFilter'] | null; // NestedDateTimeNullableFilter
+    notIn?: NexusGenScalars['DateTime'][] | null; // [DateTime!]
+  }
+  NestedEnumPartsOfSpeechFilter: { // input type
+    equals?: NexusGenEnums['PartsOfSpeech'] | null; // PartsOfSpeech
+    in?: NexusGenEnums['PartsOfSpeech'][] | null; // [PartsOfSpeech!]
+    not?: NexusGenInputs['NestedEnumPartsOfSpeechFilter'] | null; // NestedEnumPartsOfSpeechFilter
+    notIn?: NexusGenEnums['PartsOfSpeech'][] | null; // [PartsOfSpeech!]
+  }
+  NestedIntFilter: { // input type
+    equals?: number | null; // Int
+    gt?: number | null; // Int
+    gte?: number | null; // Int
+    in?: number[] | null; // [Int!]
+    lt?: number | null; // Int
+    lte?: number | null; // Int
+    not?: NexusGenInputs['NestedIntFilter'] | null; // NestedIntFilter
+    notIn?: number[] | null; // [Int!]
+  }
+  NestedStringFilter: { // input type
+    contains?: string | null; // String
+    endsWith?: string | null; // String
+    equals?: string | null; // String
+    gt?: string | null; // String
+    gte?: string | null; // String
+    in?: string[] | null; // [String!]
+    lt?: string | null; // String
+    lte?: string | null; // String
+    not?: NexusGenInputs['NestedStringFilter'] | null; // NestedStringFilter
+    notIn?: string[] | null; // [String!]
+    startsWith?: string | null; // String
+  }
+  NullableDateTimeFieldUpdateOperationsInput: { // input type
+    set?: NexusGenScalars['DateTime'] | null; // DateTime
+  }
+  StringFieldUpdateOperationsInput: { // input type
+    set?: string | null; // String
+  }
+  StringFilter: { // input type
+    contains?: string | null; // String
+    endsWith?: string | null; // String
+    equals?: string | null; // String
+    gt?: string | null; // String
+    gte?: string | null; // String
+    in?: string[] | null; // [String!]
+    lt?: string | null; // String
+    lte?: string | null; // String
+    mode?: NexusGenEnums['QueryMode'] | null; // QueryMode
+    not?: NexusGenInputs['NestedStringFilter'] | null; // NestedStringFilter
+    notIn?: string[] | null; // [String!]
+    startsWith?: string | null; // String
+  }
+  StringNullableListFilter: { // input type
+    equals?: string[] | null; // [String!]
   }
   UserCreateInput: { // input type
     email: string; // String!
@@ -44,8 +370,299 @@ export interface NexusGenInputs {
     name?: string | null; // String
     statusMessage?: string | null; // String
   }
+  WordBookCreateInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    summary: string; // String!
+    title: string; // String!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    wordDecks?: NexusGenInputs['WordDeckCreateManyWithoutWordBookInput'] | null; // WordDeckCreateManyWithoutWordBookInput
+  }
+  WordBookCreateOneWithoutWordDecksInput: { // input type
+    connect?: NexusGenInputs['WordBookWhereUniqueInput'] | null; // WordBookWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['WordBookCreateOrConnectWithoutwordDecksInput'] | null; // WordBookCreateOrConnectWithoutwordDecksInput
+    create?: NexusGenInputs['WordBookCreateWithoutWordDecksInput'] | null; // WordBookCreateWithoutWordDecksInput
+  }
+  WordBookCreateOrConnectWithoutwordDecksInput: { // input type
+    create: NexusGenInputs['WordBookCreateWithoutWordDecksInput']; // WordBookCreateWithoutWordDecksInput!
+    where: NexusGenInputs['WordBookWhereUniqueInput']; // WordBookWhereUniqueInput!
+  }
+  WordBookCreateWithoutWordDecksInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    summary: string; // String!
+    title: string; // String!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+  }
+  WordBookUpdateInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    summary?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    wordDecks?: NexusGenInputs['WordDeckUpdateManyWithoutWordBookInput'] | null; // WordDeckUpdateManyWithoutWordBookInput
+  }
+  WordBookUpdateOneRequiredWithoutWordDecksInput: { // input type
+    connect?: NexusGenInputs['WordBookWhereUniqueInput'] | null; // WordBookWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['WordBookCreateOrConnectWithoutwordDecksInput'] | null; // WordBookCreateOrConnectWithoutwordDecksInput
+    create?: NexusGenInputs['WordBookCreateWithoutWordDecksInput'] | null; // WordBookCreateWithoutWordDecksInput
+    update?: NexusGenInputs['WordBookUpdateWithoutWordDecksInput'] | null; // WordBookUpdateWithoutWordDecksInput
+    upsert?: NexusGenInputs['WordBookUpsertWithoutWordDecksInput'] | null; // WordBookUpsertWithoutWordDecksInput
+  }
+  WordBookUpdateWithoutWordDecksInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    summary?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+  }
+  WordBookUpsertWithoutWordDecksInput: { // input type
+    create: NexusGenInputs['WordBookCreateWithoutWordDecksInput']; // WordBookCreateWithoutWordDecksInput!
+    update: NexusGenInputs['WordBookUpdateWithoutWordDecksInput']; // WordBookUpdateWithoutWordDecksInput!
+  }
+  WordBookWhereUniqueInput: { // input type
+    id?: number | null; // Int
+  }
+  WordCreateInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    descriptions?: NexusGenInputs['DescriptionCreateManyWithoutWordInput'] | null; // DescriptionCreateManyWithoutWordInput
+    name: string; // String!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    wordDeck: NexusGenInputs['WordDeckCreateOneWithoutWordsInput']; // WordDeckCreateOneWithoutWordsInput!
+  }
+  WordCreateManyWithoutWordDeckInput: { // input type
+    connect?: NexusGenInputs['WordWhereUniqueInput'][] | null; // [WordWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['WordCreateOrConnectWithoutwordDeckInput'][] | null; // [WordCreateOrConnectWithoutwordDeckInput!]
+    create?: NexusGenInputs['WordCreateWithoutWordDeckInput'][] | null; // [WordCreateWithoutWordDeckInput!]
+  }
+  WordCreateOneWithoutDescriptionsInput: { // input type
+    connect?: NexusGenInputs['WordWhereUniqueInput'] | null; // WordWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['WordCreateOrConnectWithoutdescriptionsInput'] | null; // WordCreateOrConnectWithoutdescriptionsInput
+    create?: NexusGenInputs['WordCreateWithoutDescriptionsInput'] | null; // WordCreateWithoutDescriptionsInput
+  }
+  WordCreateOrConnectWithoutdescriptionsInput: { // input type
+    create: NexusGenInputs['WordCreateWithoutDescriptionsInput']; // WordCreateWithoutDescriptionsInput!
+    where: NexusGenInputs['WordWhereUniqueInput']; // WordWhereUniqueInput!
+  }
+  WordCreateOrConnectWithoutwordDeckInput: { // input type
+    create: NexusGenInputs['WordCreateWithoutWordDeckInput']; // WordCreateWithoutWordDeckInput!
+    where: NexusGenInputs['WordWhereUniqueInput']; // WordWhereUniqueInput!
+  }
+  WordCreateWithoutDescriptionsInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    name: string; // String!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    wordDeck: NexusGenInputs['WordDeckCreateOneWithoutWordsInput']; // WordDeckCreateOneWithoutWordsInput!
+  }
+  WordCreateWithoutWordDeckInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    descriptions?: NexusGenInputs['DescriptionCreateManyWithoutWordInput'] | null; // DescriptionCreateManyWithoutWordInput
+    name: string; // String!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+  }
+  WordDeckCreateInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    summary: string; // String!
+    title: string; // String!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    wordBook: NexusGenInputs['WordBookCreateOneWithoutWordDecksInput']; // WordBookCreateOneWithoutWordDecksInput!
+    words?: NexusGenInputs['WordCreateManyWithoutWordDeckInput'] | null; // WordCreateManyWithoutWordDeckInput
+  }
+  WordDeckCreateManyWithoutWordBookInput: { // input type
+    connect?: NexusGenInputs['WordDeckWhereUniqueInput'][] | null; // [WordDeckWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['WordDeckCreateOrConnectWithoutwordBookInput'][] | null; // [WordDeckCreateOrConnectWithoutwordBookInput!]
+    create?: NexusGenInputs['WordDeckCreateWithoutWordBookInput'][] | null; // [WordDeckCreateWithoutWordBookInput!]
+  }
+  WordDeckCreateOneWithoutWordsInput: { // input type
+    connect?: NexusGenInputs['WordDeckWhereUniqueInput'] | null; // WordDeckWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['WordDeckCreateOrConnectWithoutwordsInput'] | null; // WordDeckCreateOrConnectWithoutwordsInput
+    create?: NexusGenInputs['WordDeckCreateWithoutWordsInput'] | null; // WordDeckCreateWithoutWordsInput
+  }
+  WordDeckCreateOrConnectWithoutwordBookInput: { // input type
+    create: NexusGenInputs['WordDeckCreateWithoutWordBookInput']; // WordDeckCreateWithoutWordBookInput!
+    where: NexusGenInputs['WordDeckWhereUniqueInput']; // WordDeckWhereUniqueInput!
+  }
+  WordDeckCreateOrConnectWithoutwordsInput: { // input type
+    create: NexusGenInputs['WordDeckCreateWithoutWordsInput']; // WordDeckCreateWithoutWordsInput!
+    where: NexusGenInputs['WordDeckWhereUniqueInput']; // WordDeckWhereUniqueInput!
+  }
+  WordDeckCreateWithoutWordBookInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    summary: string; // String!
+    title: string; // String!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    words?: NexusGenInputs['WordCreateManyWithoutWordDeckInput'] | null; // WordCreateManyWithoutWordDeckInput
+  }
+  WordDeckCreateWithoutWordsInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    summary: string; // String!
+    title: string; // String!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    wordBook: NexusGenInputs['WordBookCreateOneWithoutWordDecksInput']; // WordBookCreateOneWithoutWordDecksInput!
+  }
+  WordDeckScalarWhereInput: { // input type
+    AND?: NexusGenInputs['WordDeckScalarWhereInput'][] | null; // [WordDeckScalarWhereInput!]
+    createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    deletedAt?: NexusGenInputs['DateTimeNullableFilter'] | null; // DateTimeNullableFilter
+    id?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    NOT?: NexusGenInputs['WordDeckScalarWhereInput'][] | null; // [WordDeckScalarWhereInput!]
+    OR?: NexusGenInputs['WordDeckScalarWhereInput'][] | null; // [WordDeckScalarWhereInput!]
+    summary?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    title?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    wordBookId?: NexusGenInputs['IntFilter'] | null; // IntFilter
+  }
+  WordDeckUpdateInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    summary?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    wordBook?: NexusGenInputs['WordBookUpdateOneRequiredWithoutWordDecksInput'] | null; // WordBookUpdateOneRequiredWithoutWordDecksInput
+    words?: NexusGenInputs['WordUpdateManyWithoutWordDeckInput'] | null; // WordUpdateManyWithoutWordDeckInput
+  }
+  WordDeckUpdateManyMutationInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    summary?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+  }
+  WordDeckUpdateManyWithWhereWithoutWordBookInput: { // input type
+    data: NexusGenInputs['WordDeckUpdateManyMutationInput']; // WordDeckUpdateManyMutationInput!
+    where: NexusGenInputs['WordDeckScalarWhereInput']; // WordDeckScalarWhereInput!
+  }
+  WordDeckUpdateManyWithoutWordBookInput: { // input type
+    connect?: NexusGenInputs['WordDeckWhereUniqueInput'][] | null; // [WordDeckWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['WordDeckCreateOrConnectWithoutwordBookInput'][] | null; // [WordDeckCreateOrConnectWithoutwordBookInput!]
+    create?: NexusGenInputs['WordDeckCreateWithoutWordBookInput'][] | null; // [WordDeckCreateWithoutWordBookInput!]
+    delete?: NexusGenInputs['WordDeckWhereUniqueInput'][] | null; // [WordDeckWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['WordDeckScalarWhereInput'][] | null; // [WordDeckScalarWhereInput!]
+    disconnect?: NexusGenInputs['WordDeckWhereUniqueInput'][] | null; // [WordDeckWhereUniqueInput!]
+    set?: NexusGenInputs['WordDeckWhereUniqueInput'][] | null; // [WordDeckWhereUniqueInput!]
+    update?: NexusGenInputs['WordDeckUpdateWithWhereUniqueWithoutWordBookInput'][] | null; // [WordDeckUpdateWithWhereUniqueWithoutWordBookInput!]
+    updateMany?: NexusGenInputs['WordDeckUpdateManyWithWhereWithoutWordBookInput'][] | null; // [WordDeckUpdateManyWithWhereWithoutWordBookInput!]
+    upsert?: NexusGenInputs['WordDeckUpsertWithWhereUniqueWithoutWordBookInput'][] | null; // [WordDeckUpsertWithWhereUniqueWithoutWordBookInput!]
+  }
+  WordDeckUpdateOneRequiredWithoutWordsInput: { // input type
+    connect?: NexusGenInputs['WordDeckWhereUniqueInput'] | null; // WordDeckWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['WordDeckCreateOrConnectWithoutwordsInput'] | null; // WordDeckCreateOrConnectWithoutwordsInput
+    create?: NexusGenInputs['WordDeckCreateWithoutWordsInput'] | null; // WordDeckCreateWithoutWordsInput
+    update?: NexusGenInputs['WordDeckUpdateWithoutWordsInput'] | null; // WordDeckUpdateWithoutWordsInput
+    upsert?: NexusGenInputs['WordDeckUpsertWithoutWordsInput'] | null; // WordDeckUpsertWithoutWordsInput
+  }
+  WordDeckUpdateWithWhereUniqueWithoutWordBookInput: { // input type
+    data: NexusGenInputs['WordDeckUpdateWithoutWordBookInput']; // WordDeckUpdateWithoutWordBookInput!
+    where: NexusGenInputs['WordDeckWhereUniqueInput']; // WordDeckWhereUniqueInput!
+  }
+  WordDeckUpdateWithoutWordBookInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    summary?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    words?: NexusGenInputs['WordUpdateManyWithoutWordDeckInput'] | null; // WordUpdateManyWithoutWordDeckInput
+  }
+  WordDeckUpdateWithoutWordsInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    summary?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    wordBook?: NexusGenInputs['WordBookUpdateOneRequiredWithoutWordDecksInput'] | null; // WordBookUpdateOneRequiredWithoutWordDecksInput
+  }
+  WordDeckUpsertWithWhereUniqueWithoutWordBookInput: { // input type
+    create: NexusGenInputs['WordDeckCreateWithoutWordBookInput']; // WordDeckCreateWithoutWordBookInput!
+    update: NexusGenInputs['WordDeckUpdateWithoutWordBookInput']; // WordDeckUpdateWithoutWordBookInput!
+    where: NexusGenInputs['WordDeckWhereUniqueInput']; // WordDeckWhereUniqueInput!
+  }
+  WordDeckUpsertWithoutWordsInput: { // input type
+    create: NexusGenInputs['WordDeckCreateWithoutWordsInput']; // WordDeckCreateWithoutWordsInput!
+    update: NexusGenInputs['WordDeckUpdateWithoutWordsInput']; // WordDeckUpdateWithoutWordsInput!
+  }
   WordDeckWhereUniqueInput: { // input type
     id?: number | null; // Int
+  }
+  WordScalarWhereInput: { // input type
+    AND?: NexusGenInputs['WordScalarWhereInput'][] | null; // [WordScalarWhereInput!]
+    createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    deletedAt?: NexusGenInputs['DateTimeNullableFilter'] | null; // DateTimeNullableFilter
+    id?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    name?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    NOT?: NexusGenInputs['WordScalarWhereInput'][] | null; // [WordScalarWhereInput!]
+    OR?: NexusGenInputs['WordScalarWhereInput'][] | null; // [WordScalarWhereInput!]
+    updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    wordDeckId?: NexusGenInputs['IntFilter'] | null; // IntFilter
+  }
+  WordUpdateInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    descriptions?: NexusGenInputs['DescriptionUpdateManyWithoutWordInput'] | null; // DescriptionUpdateManyWithoutWordInput
+    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    wordDeck?: NexusGenInputs['WordDeckUpdateOneRequiredWithoutWordsInput'] | null; // WordDeckUpdateOneRequiredWithoutWordsInput
+  }
+  WordUpdateManyMutationInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+  }
+  WordUpdateManyWithWhereWithoutWordDeckInput: { // input type
+    data: NexusGenInputs['WordUpdateManyMutationInput']; // WordUpdateManyMutationInput!
+    where: NexusGenInputs['WordScalarWhereInput']; // WordScalarWhereInput!
+  }
+  WordUpdateManyWithoutWordDeckInput: { // input type
+    connect?: NexusGenInputs['WordWhereUniqueInput'][] | null; // [WordWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['WordCreateOrConnectWithoutwordDeckInput'][] | null; // [WordCreateOrConnectWithoutwordDeckInput!]
+    create?: NexusGenInputs['WordCreateWithoutWordDeckInput'][] | null; // [WordCreateWithoutWordDeckInput!]
+    delete?: NexusGenInputs['WordWhereUniqueInput'][] | null; // [WordWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['WordScalarWhereInput'][] | null; // [WordScalarWhereInput!]
+    disconnect?: NexusGenInputs['WordWhereUniqueInput'][] | null; // [WordWhereUniqueInput!]
+    set?: NexusGenInputs['WordWhereUniqueInput'][] | null; // [WordWhereUniqueInput!]
+    update?: NexusGenInputs['WordUpdateWithWhereUniqueWithoutWordDeckInput'][] | null; // [WordUpdateWithWhereUniqueWithoutWordDeckInput!]
+    updateMany?: NexusGenInputs['WordUpdateManyWithWhereWithoutWordDeckInput'][] | null; // [WordUpdateManyWithWhereWithoutWordDeckInput!]
+    upsert?: NexusGenInputs['WordUpsertWithWhereUniqueWithoutWordDeckInput'][] | null; // [WordUpsertWithWhereUniqueWithoutWordDeckInput!]
+  }
+  WordUpdateOneRequiredWithoutDescriptionsInput: { // input type
+    connect?: NexusGenInputs['WordWhereUniqueInput'] | null; // WordWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['WordCreateOrConnectWithoutdescriptionsInput'] | null; // WordCreateOrConnectWithoutdescriptionsInput
+    create?: NexusGenInputs['WordCreateWithoutDescriptionsInput'] | null; // WordCreateWithoutDescriptionsInput
+    update?: NexusGenInputs['WordUpdateWithoutDescriptionsInput'] | null; // WordUpdateWithoutDescriptionsInput
+    upsert?: NexusGenInputs['WordUpsertWithoutDescriptionsInput'] | null; // WordUpsertWithoutDescriptionsInput
+  }
+  WordUpdateWithWhereUniqueWithoutWordDeckInput: { // input type
+    data: NexusGenInputs['WordUpdateWithoutWordDeckInput']; // WordUpdateWithoutWordDeckInput!
+    where: NexusGenInputs['WordWhereUniqueInput']; // WordWhereUniqueInput!
+  }
+  WordUpdateWithoutDescriptionsInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    wordDeck?: NexusGenInputs['WordDeckUpdateOneRequiredWithoutWordsInput'] | null; // WordDeckUpdateOneRequiredWithoutWordsInput
+  }
+  WordUpdateWithoutWordDeckInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    descriptions?: NexusGenInputs['DescriptionUpdateManyWithoutWordInput'] | null; // DescriptionUpdateManyWithoutWordInput
+    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+  }
+  WordUpsertWithWhereUniqueWithoutWordDeckInput: { // input type
+    create: NexusGenInputs['WordCreateWithoutWordDeckInput']; // WordCreateWithoutWordDeckInput!
+    update: NexusGenInputs['WordUpdateWithoutWordDeckInput']; // WordUpdateWithoutWordDeckInput!
+    where: NexusGenInputs['WordWhereUniqueInput']; // WordWhereUniqueInput!
+  }
+  WordUpsertWithoutDescriptionsInput: { // input type
+    create: NexusGenInputs['WordCreateWithoutDescriptionsInput']; // WordCreateWithoutDescriptionsInput!
+    update: NexusGenInputs['WordUpdateWithoutDescriptionsInput']; // WordUpdateWithoutDescriptionsInput!
   }
   WordWhereUniqueInput: { // input type
     id?: number | null; // Int
@@ -54,6 +671,7 @@ export interface NexusGenInputs {
 
 export interface NexusGenEnums {
   PartsOfSpeech: "ADJECTIVE" | "ADVERB" | "CONJUNCTION" | "INTERJUNCTION" | "NOUN" | "PREPOSITION" | "PRONOUN" | "VERB"
+  QueryMode: "default" | "insensitive"
 }
 
 export interface NexusGenScalars {
@@ -105,6 +723,7 @@ export interface NexusGenRootTypes {
     createdAt: NexusGenScalars['DateTime']; // DateTime!
     deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     id: number; // Int!
+    name: string; // String!
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
     wordDeckId: number; // Int!
   }
@@ -128,13 +747,106 @@ export interface NexusGenRootTypes {
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
+  DateTimeFieldUpdateOperationsInput: NexusGenInputs['DateTimeFieldUpdateOperationsInput'];
+  DateTimeFilter: NexusGenInputs['DateTimeFilter'];
+  DateTimeNullableFilter: NexusGenInputs['DateTimeNullableFilter'];
+  DescriptionCreateInput: NexusGenInputs['DescriptionCreateInput'];
+  DescriptionCreateManyWithoutWordInput: NexusGenInputs['DescriptionCreateManyWithoutWordInput'];
+  DescriptionCreateOneWithoutExamplesInput: NexusGenInputs['DescriptionCreateOneWithoutExamplesInput'];
+  DescriptionCreateOrConnectWithoutexamplesInput: NexusGenInputs['DescriptionCreateOrConnectWithoutexamplesInput'];
+  DescriptionCreateOrConnectWithoutwordInput: NexusGenInputs['DescriptionCreateOrConnectWithoutwordInput'];
+  DescriptionCreateWithoutExamplesInput: NexusGenInputs['DescriptionCreateWithoutExamplesInput'];
+  DescriptionCreateWithoutWordInput: NexusGenInputs['DescriptionCreateWithoutWordInput'];
+  DescriptionCreatemeaningsInput: NexusGenInputs['DescriptionCreatemeaningsInput'];
+  DescriptionScalarWhereInput: NexusGenInputs['DescriptionScalarWhereInput'];
+  DescriptionUpdateInput: NexusGenInputs['DescriptionUpdateInput'];
+  DescriptionUpdateManyMutationInput: NexusGenInputs['DescriptionUpdateManyMutationInput'];
+  DescriptionUpdateManyWithWhereWithoutWordInput: NexusGenInputs['DescriptionUpdateManyWithWhereWithoutWordInput'];
+  DescriptionUpdateManyWithoutWordInput: NexusGenInputs['DescriptionUpdateManyWithoutWordInput'];
+  DescriptionUpdateOneRequiredWithoutExamplesInput: NexusGenInputs['DescriptionUpdateOneRequiredWithoutExamplesInput'];
+  DescriptionUpdateWithWhereUniqueWithoutWordInput: NexusGenInputs['DescriptionUpdateWithWhereUniqueWithoutWordInput'];
+  DescriptionUpdateWithoutExamplesInput: NexusGenInputs['DescriptionUpdateWithoutExamplesInput'];
+  DescriptionUpdateWithoutWordInput: NexusGenInputs['DescriptionUpdateWithoutWordInput'];
+  DescriptionUpdatemeaningsInput: NexusGenInputs['DescriptionUpdatemeaningsInput'];
+  DescriptionUpsertWithWhereUniqueWithoutWordInput: NexusGenInputs['DescriptionUpsertWithWhereUniqueWithoutWordInput'];
+  DescriptionUpsertWithoutExamplesInput: NexusGenInputs['DescriptionUpsertWithoutExamplesInput'];
   DescriptionWhereUniqueInput: NexusGenInputs['DescriptionWhereUniqueInput'];
+  EnumPartsOfSpeechFieldUpdateOperationsInput: NexusGenInputs['EnumPartsOfSpeechFieldUpdateOperationsInput'];
+  EnumPartsOfSpeechFilter: NexusGenInputs['EnumPartsOfSpeechFilter'];
+  ExampleCreateInput: NexusGenInputs['ExampleCreateInput'];
+  ExampleCreateManyWithoutDescriptionInput: NexusGenInputs['ExampleCreateManyWithoutDescriptionInput'];
+  ExampleCreateOrConnectWithoutdescriptionInput: NexusGenInputs['ExampleCreateOrConnectWithoutdescriptionInput'];
+  ExampleCreateWithoutDescriptionInput: NexusGenInputs['ExampleCreateWithoutDescriptionInput'];
+  ExampleScalarWhereInput: NexusGenInputs['ExampleScalarWhereInput'];
+  ExampleUpdateInput: NexusGenInputs['ExampleUpdateInput'];
+  ExampleUpdateManyMutationInput: NexusGenInputs['ExampleUpdateManyMutationInput'];
+  ExampleUpdateManyWithWhereWithoutDescriptionInput: NexusGenInputs['ExampleUpdateManyWithWhereWithoutDescriptionInput'];
+  ExampleUpdateManyWithoutDescriptionInput: NexusGenInputs['ExampleUpdateManyWithoutDescriptionInput'];
+  ExampleUpdateWithWhereUniqueWithoutDescriptionInput: NexusGenInputs['ExampleUpdateWithWhereUniqueWithoutDescriptionInput'];
+  ExampleUpdateWithoutDescriptionInput: NexusGenInputs['ExampleUpdateWithoutDescriptionInput'];
+  ExampleUpsertWithWhereUniqueWithoutDescriptionInput: NexusGenInputs['ExampleUpsertWithWhereUniqueWithoutDescriptionInput'];
   ExampleWhereUniqueInput: NexusGenInputs['ExampleWhereUniqueInput'];
+  IntFilter: NexusGenInputs['IntFilter'];
+  NestedDateTimeFilter: NexusGenInputs['NestedDateTimeFilter'];
+  NestedDateTimeNullableFilter: NexusGenInputs['NestedDateTimeNullableFilter'];
+  NestedEnumPartsOfSpeechFilter: NexusGenInputs['NestedEnumPartsOfSpeechFilter'];
+  NestedIntFilter: NexusGenInputs['NestedIntFilter'];
+  NestedStringFilter: NexusGenInputs['NestedStringFilter'];
+  NullableDateTimeFieldUpdateOperationsInput: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'];
+  StringFieldUpdateOperationsInput: NexusGenInputs['StringFieldUpdateOperationsInput'];
+  StringFilter: NexusGenInputs['StringFilter'];
+  StringNullableListFilter: NexusGenInputs['StringNullableListFilter'];
   UserCreateInput: NexusGenInputs['UserCreateInput'];
   UserUpdateInput: NexusGenInputs['UserUpdateInput'];
+  WordBookCreateInput: NexusGenInputs['WordBookCreateInput'];
+  WordBookCreateOneWithoutWordDecksInput: NexusGenInputs['WordBookCreateOneWithoutWordDecksInput'];
+  WordBookCreateOrConnectWithoutwordDecksInput: NexusGenInputs['WordBookCreateOrConnectWithoutwordDecksInput'];
+  WordBookCreateWithoutWordDecksInput: NexusGenInputs['WordBookCreateWithoutWordDecksInput'];
+  WordBookUpdateInput: NexusGenInputs['WordBookUpdateInput'];
+  WordBookUpdateOneRequiredWithoutWordDecksInput: NexusGenInputs['WordBookUpdateOneRequiredWithoutWordDecksInput'];
+  WordBookUpdateWithoutWordDecksInput: NexusGenInputs['WordBookUpdateWithoutWordDecksInput'];
+  WordBookUpsertWithoutWordDecksInput: NexusGenInputs['WordBookUpsertWithoutWordDecksInput'];
+  WordBookWhereUniqueInput: NexusGenInputs['WordBookWhereUniqueInput'];
+  WordCreateInput: NexusGenInputs['WordCreateInput'];
+  WordCreateManyWithoutWordDeckInput: NexusGenInputs['WordCreateManyWithoutWordDeckInput'];
+  WordCreateOneWithoutDescriptionsInput: NexusGenInputs['WordCreateOneWithoutDescriptionsInput'];
+  WordCreateOrConnectWithoutdescriptionsInput: NexusGenInputs['WordCreateOrConnectWithoutdescriptionsInput'];
+  WordCreateOrConnectWithoutwordDeckInput: NexusGenInputs['WordCreateOrConnectWithoutwordDeckInput'];
+  WordCreateWithoutDescriptionsInput: NexusGenInputs['WordCreateWithoutDescriptionsInput'];
+  WordCreateWithoutWordDeckInput: NexusGenInputs['WordCreateWithoutWordDeckInput'];
+  WordDeckCreateInput: NexusGenInputs['WordDeckCreateInput'];
+  WordDeckCreateManyWithoutWordBookInput: NexusGenInputs['WordDeckCreateManyWithoutWordBookInput'];
+  WordDeckCreateOneWithoutWordsInput: NexusGenInputs['WordDeckCreateOneWithoutWordsInput'];
+  WordDeckCreateOrConnectWithoutwordBookInput: NexusGenInputs['WordDeckCreateOrConnectWithoutwordBookInput'];
+  WordDeckCreateOrConnectWithoutwordsInput: NexusGenInputs['WordDeckCreateOrConnectWithoutwordsInput'];
+  WordDeckCreateWithoutWordBookInput: NexusGenInputs['WordDeckCreateWithoutWordBookInput'];
+  WordDeckCreateWithoutWordsInput: NexusGenInputs['WordDeckCreateWithoutWordsInput'];
+  WordDeckScalarWhereInput: NexusGenInputs['WordDeckScalarWhereInput'];
+  WordDeckUpdateInput: NexusGenInputs['WordDeckUpdateInput'];
+  WordDeckUpdateManyMutationInput: NexusGenInputs['WordDeckUpdateManyMutationInput'];
+  WordDeckUpdateManyWithWhereWithoutWordBookInput: NexusGenInputs['WordDeckUpdateManyWithWhereWithoutWordBookInput'];
+  WordDeckUpdateManyWithoutWordBookInput: NexusGenInputs['WordDeckUpdateManyWithoutWordBookInput'];
+  WordDeckUpdateOneRequiredWithoutWordsInput: NexusGenInputs['WordDeckUpdateOneRequiredWithoutWordsInput'];
+  WordDeckUpdateWithWhereUniqueWithoutWordBookInput: NexusGenInputs['WordDeckUpdateWithWhereUniqueWithoutWordBookInput'];
+  WordDeckUpdateWithoutWordBookInput: NexusGenInputs['WordDeckUpdateWithoutWordBookInput'];
+  WordDeckUpdateWithoutWordsInput: NexusGenInputs['WordDeckUpdateWithoutWordsInput'];
+  WordDeckUpsertWithWhereUniqueWithoutWordBookInput: NexusGenInputs['WordDeckUpsertWithWhereUniqueWithoutWordBookInput'];
+  WordDeckUpsertWithoutWordsInput: NexusGenInputs['WordDeckUpsertWithoutWordsInput'];
   WordDeckWhereUniqueInput: NexusGenInputs['WordDeckWhereUniqueInput'];
+  WordScalarWhereInput: NexusGenInputs['WordScalarWhereInput'];
+  WordUpdateInput: NexusGenInputs['WordUpdateInput'];
+  WordUpdateManyMutationInput: NexusGenInputs['WordUpdateManyMutationInput'];
+  WordUpdateManyWithWhereWithoutWordDeckInput: NexusGenInputs['WordUpdateManyWithWhereWithoutWordDeckInput'];
+  WordUpdateManyWithoutWordDeckInput: NexusGenInputs['WordUpdateManyWithoutWordDeckInput'];
+  WordUpdateOneRequiredWithoutDescriptionsInput: NexusGenInputs['WordUpdateOneRequiredWithoutDescriptionsInput'];
+  WordUpdateWithWhereUniqueWithoutWordDeckInput: NexusGenInputs['WordUpdateWithWhereUniqueWithoutWordDeckInput'];
+  WordUpdateWithoutDescriptionsInput: NexusGenInputs['WordUpdateWithoutDescriptionsInput'];
+  WordUpdateWithoutWordDeckInput: NexusGenInputs['WordUpdateWithoutWordDeckInput'];
+  WordUpsertWithWhereUniqueWithoutWordDeckInput: NexusGenInputs['WordUpsertWithWhereUniqueWithoutWordDeckInput'];
+  WordUpsertWithoutDescriptionsInput: NexusGenInputs['WordUpsertWithoutDescriptionsInput'];
   WordWhereUniqueInput: NexusGenInputs['WordWhereUniqueInput'];
   PartsOfSpeech: NexusGenEnums['PartsOfSpeech'];
+  QueryMode: NexusGenEnums['QueryMode'];
   String: NexusGenScalars['String'];
   Int: NexusGenScalars['Int'];
   Float: NexusGenScalars['Float'];
@@ -172,13 +884,28 @@ export interface NexusGenFieldTypes {
     vn: string; // String!
   }
   Mutation: { // field return type
+    createOneDescription: NexusGenRootTypes['Description']; // Description!
+    createOneExample: NexusGenRootTypes['Example']; // Example!
+    createOneWord: NexusGenRootTypes['Word']; // Word!
+    createOneWordBook: NexusGenRootTypes['WordBook']; // WordBook!
+    createOneWordDeck: NexusGenRootTypes['WordDeck']; // WordDeck!
     signIn: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
     signUp: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
+    updateOneDescription: NexusGenRootTypes['Description'] | null; // Description
+    updateOneExample: NexusGenRootTypes['Example'] | null; // Example
+    updateOneWord: NexusGenRootTypes['Word'] | null; // Word
+    updateOneWordBook: NexusGenRootTypes['WordBook'] | null; // WordBook
+    updateOneWordDeck: NexusGenRootTypes['WordDeck'] | null; // WordDeck
     updateProfile: NexusGenRootTypes['User'] | null; // User
   }
   Query: { // field return type
+    descriptions: NexusGenRootTypes['Description'][]; // [Description!]!
+    examples: NexusGenRootTypes['Example'][]; // [Example!]!
     me: NexusGenRootTypes['User'] | null; // User
     users: Array<NexusGenRootTypes['User'] | null> | null; // [User]
+    wordBooks: NexusGenRootTypes['WordBook'][]; // [WordBook!]!
+    wordDecks: NexusGenRootTypes['WordDeck'][]; // [WordDeck!]!
+    words: NexusGenRootTypes['Word'][]; // [Word!]!
   }
   Subscription: { // field return type
     userSignedIn: NexusGenRootTypes['User'] | null; // User
@@ -197,6 +924,7 @@ export interface NexusGenFieldTypes {
     deletedAt: NexusGenScalars['DateTime'] | null; // DateTime
     descriptions: NexusGenRootTypes['Description'][]; // [Description!]!
     id: number; // Int!
+    name: string; // String!
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
     wordDeck: NexusGenRootTypes['WordDeck']; // WordDeck!
     wordDeckId: number; // Int!
@@ -250,13 +978,28 @@ export interface NexusGenFieldTypeNames {
     vn: 'String'
   }
   Mutation: { // field return type name
+    createOneDescription: 'Description'
+    createOneExample: 'Example'
+    createOneWord: 'Word'
+    createOneWordBook: 'WordBook'
+    createOneWordDeck: 'WordDeck'
     signIn: 'AuthPayload'
     signUp: 'AuthPayload'
+    updateOneDescription: 'Description'
+    updateOneExample: 'Example'
+    updateOneWord: 'Word'
+    updateOneWordBook: 'WordBook'
+    updateOneWordDeck: 'WordDeck'
     updateProfile: 'User'
   }
   Query: { // field return type name
+    descriptions: 'Description'
+    examples: 'Example'
     me: 'User'
     users: 'User'
+    wordBooks: 'WordBook'
+    wordDecks: 'WordDeck'
+    words: 'Word'
   }
   Subscription: { // field return type name
     userSignedIn: 'User'
@@ -275,6 +1018,7 @@ export interface NexusGenFieldTypeNames {
     deletedAt: 'DateTime'
     descriptions: 'Description'
     id: 'Int'
+    name: 'String'
     updatedAt: 'DateTime'
     wordDeck: 'WordDeck'
     wordDeckId: 'Int'
@@ -311,6 +1055,21 @@ export interface NexusGenArgTypes {
     }
   }
   Mutation: {
+    createOneDescription: { // args
+      data: NexusGenInputs['DescriptionCreateInput']; // DescriptionCreateInput!
+    }
+    createOneExample: { // args
+      data: NexusGenInputs['ExampleCreateInput']; // ExampleCreateInput!
+    }
+    createOneWord: { // args
+      data: NexusGenInputs['WordCreateInput']; // WordCreateInput!
+    }
+    createOneWordBook: { // args
+      data: NexusGenInputs['WordBookCreateInput']; // WordBookCreateInput!
+    }
+    createOneWordDeck: { // args
+      data: NexusGenInputs['WordDeckCreateInput']; // WordDeckCreateInput!
+    }
     signIn: { // args
       email: string; // String!
       password: string; // String!
@@ -318,8 +1077,60 @@ export interface NexusGenArgTypes {
     signUp: { // args
       user?: NexusGenInputs['UserCreateInput'] | null; // UserCreateInput
     }
+    updateOneDescription: { // args
+      data: NexusGenInputs['DescriptionUpdateInput']; // DescriptionUpdateInput!
+      where: NexusGenInputs['DescriptionWhereUniqueInput']; // DescriptionWhereUniqueInput!
+    }
+    updateOneExample: { // args
+      data: NexusGenInputs['ExampleUpdateInput']; // ExampleUpdateInput!
+      where: NexusGenInputs['ExampleWhereUniqueInput']; // ExampleWhereUniqueInput!
+    }
+    updateOneWord: { // args
+      data: NexusGenInputs['WordUpdateInput']; // WordUpdateInput!
+      where: NexusGenInputs['WordWhereUniqueInput']; // WordWhereUniqueInput!
+    }
+    updateOneWordBook: { // args
+      data: NexusGenInputs['WordBookUpdateInput']; // WordBookUpdateInput!
+      where: NexusGenInputs['WordBookWhereUniqueInput']; // WordBookWhereUniqueInput!
+    }
+    updateOneWordDeck: { // args
+      data: NexusGenInputs['WordDeckUpdateInput']; // WordDeckUpdateInput!
+      where: NexusGenInputs['WordDeckWhereUniqueInput']; // WordDeckWhereUniqueInput!
+    }
     updateProfile: { // args
       user?: NexusGenInputs['UserUpdateInput'] | null; // UserUpdateInput
+    }
+  }
+  Query: {
+    descriptions: { // args
+      after?: NexusGenInputs['DescriptionWhereUniqueInput'] | null; // DescriptionWhereUniqueInput
+      before?: NexusGenInputs['DescriptionWhereUniqueInput'] | null; // DescriptionWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+    }
+    examples: { // args
+      after?: NexusGenInputs['ExampleWhereUniqueInput'] | null; // ExampleWhereUniqueInput
+      before?: NexusGenInputs['ExampleWhereUniqueInput'] | null; // ExampleWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+    }
+    wordBooks: { // args
+      after?: NexusGenInputs['WordBookWhereUniqueInput'] | null; // WordBookWhereUniqueInput
+      before?: NexusGenInputs['WordBookWhereUniqueInput'] | null; // WordBookWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+    }
+    wordDecks: { // args
+      after?: NexusGenInputs['WordDeckWhereUniqueInput'] | null; // WordDeckWhereUniqueInput
+      before?: NexusGenInputs['WordDeckWhereUniqueInput'] | null; // WordDeckWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+    }
+    words: { // args
+      after?: NexusGenInputs['WordWhereUniqueInput'] | null; // WordWhereUniqueInput
+      before?: NexusGenInputs['WordWhereUniqueInput'] | null; // WordWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
     }
   }
   Subscription: {
@@ -363,9 +1174,9 @@ export interface NexusGenInheritedFields {}
 
 export type NexusGenObjectNames = "AuthPayload" | "Description" | "Example" | "Mutation" | "Query" | "Subscription" | "User" | "Word" | "WordBook" | "WordDeck";
 
-export type NexusGenInputNames = "DescriptionWhereUniqueInput" | "ExampleWhereUniqueInput" | "UserCreateInput" | "UserUpdateInput" | "WordDeckWhereUniqueInput" | "WordWhereUniqueInput";
+export type NexusGenInputNames = "DateTimeFieldUpdateOperationsInput" | "DateTimeFilter" | "DateTimeNullableFilter" | "DescriptionCreateInput" | "DescriptionCreateManyWithoutWordInput" | "DescriptionCreateOneWithoutExamplesInput" | "DescriptionCreateOrConnectWithoutexamplesInput" | "DescriptionCreateOrConnectWithoutwordInput" | "DescriptionCreateWithoutExamplesInput" | "DescriptionCreateWithoutWordInput" | "DescriptionCreatemeaningsInput" | "DescriptionScalarWhereInput" | "DescriptionUpdateInput" | "DescriptionUpdateManyMutationInput" | "DescriptionUpdateManyWithWhereWithoutWordInput" | "DescriptionUpdateManyWithoutWordInput" | "DescriptionUpdateOneRequiredWithoutExamplesInput" | "DescriptionUpdateWithWhereUniqueWithoutWordInput" | "DescriptionUpdateWithoutExamplesInput" | "DescriptionUpdateWithoutWordInput" | "DescriptionUpdatemeaningsInput" | "DescriptionUpsertWithWhereUniqueWithoutWordInput" | "DescriptionUpsertWithoutExamplesInput" | "DescriptionWhereUniqueInput" | "EnumPartsOfSpeechFieldUpdateOperationsInput" | "EnumPartsOfSpeechFilter" | "ExampleCreateInput" | "ExampleCreateManyWithoutDescriptionInput" | "ExampleCreateOrConnectWithoutdescriptionInput" | "ExampleCreateWithoutDescriptionInput" | "ExampleScalarWhereInput" | "ExampleUpdateInput" | "ExampleUpdateManyMutationInput" | "ExampleUpdateManyWithWhereWithoutDescriptionInput" | "ExampleUpdateManyWithoutDescriptionInput" | "ExampleUpdateWithWhereUniqueWithoutDescriptionInput" | "ExampleUpdateWithoutDescriptionInput" | "ExampleUpsertWithWhereUniqueWithoutDescriptionInput" | "ExampleWhereUniqueInput" | "IntFilter" | "NestedDateTimeFilter" | "NestedDateTimeNullableFilter" | "NestedEnumPartsOfSpeechFilter" | "NestedIntFilter" | "NestedStringFilter" | "NullableDateTimeFieldUpdateOperationsInput" | "StringFieldUpdateOperationsInput" | "StringFilter" | "StringNullableListFilter" | "UserCreateInput" | "UserUpdateInput" | "WordBookCreateInput" | "WordBookCreateOneWithoutWordDecksInput" | "WordBookCreateOrConnectWithoutwordDecksInput" | "WordBookCreateWithoutWordDecksInput" | "WordBookUpdateInput" | "WordBookUpdateOneRequiredWithoutWordDecksInput" | "WordBookUpdateWithoutWordDecksInput" | "WordBookUpsertWithoutWordDecksInput" | "WordBookWhereUniqueInput" | "WordCreateInput" | "WordCreateManyWithoutWordDeckInput" | "WordCreateOneWithoutDescriptionsInput" | "WordCreateOrConnectWithoutdescriptionsInput" | "WordCreateOrConnectWithoutwordDeckInput" | "WordCreateWithoutDescriptionsInput" | "WordCreateWithoutWordDeckInput" | "WordDeckCreateInput" | "WordDeckCreateManyWithoutWordBookInput" | "WordDeckCreateOneWithoutWordsInput" | "WordDeckCreateOrConnectWithoutwordBookInput" | "WordDeckCreateOrConnectWithoutwordsInput" | "WordDeckCreateWithoutWordBookInput" | "WordDeckCreateWithoutWordsInput" | "WordDeckScalarWhereInput" | "WordDeckUpdateInput" | "WordDeckUpdateManyMutationInput" | "WordDeckUpdateManyWithWhereWithoutWordBookInput" | "WordDeckUpdateManyWithoutWordBookInput" | "WordDeckUpdateOneRequiredWithoutWordsInput" | "WordDeckUpdateWithWhereUniqueWithoutWordBookInput" | "WordDeckUpdateWithoutWordBookInput" | "WordDeckUpdateWithoutWordsInput" | "WordDeckUpsertWithWhereUniqueWithoutWordBookInput" | "WordDeckUpsertWithoutWordsInput" | "WordDeckWhereUniqueInput" | "WordScalarWhereInput" | "WordUpdateInput" | "WordUpdateManyMutationInput" | "WordUpdateManyWithWhereWithoutWordDeckInput" | "WordUpdateManyWithoutWordDeckInput" | "WordUpdateOneRequiredWithoutDescriptionsInput" | "WordUpdateWithWhereUniqueWithoutWordDeckInput" | "WordUpdateWithoutDescriptionsInput" | "WordUpdateWithoutWordDeckInput" | "WordUpsertWithWhereUniqueWithoutWordDeckInput" | "WordUpsertWithoutDescriptionsInput" | "WordWhereUniqueInput";
 
-export type NexusGenEnumNames = "PartsOfSpeech";
+export type NexusGenEnumNames = "PartsOfSpeech" | "QueryMode";
 
 export type NexusGenInterfaceNames = never;
 
