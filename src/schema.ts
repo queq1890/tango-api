@@ -13,7 +13,7 @@ const schema = makeSchema({
   ],
   outputs: {
     schema: path.join(__dirname, "./../schema.graphql"),
-    typegen: path.join(__dirname, "./generated/nexus.ts"),
+    typegen: path.join(__dirname, "./generated/apiTypes.ts"),
   },
 });
 
