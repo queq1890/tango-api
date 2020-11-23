@@ -6,6 +6,7 @@ export const Example = objectType({
     t.model.id();
     t.model.vn();
     t.model.ja();
+    t.model.voice();
     t.model.description();
     t.model.descriptionId();
     t.model.createdAt();

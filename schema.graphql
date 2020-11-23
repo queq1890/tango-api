@@ -225,6 +225,7 @@ type Example {
   ja: String!
   updatedAt: DateTime!
   vn: String!
+  voice: String
 }
 
 input ExampleCreateInput {
@@ -234,6 +235,7 @@ input ExampleCreateInput {
   ja: String!
   updatedAt: DateTime
   vn: String!
+  voice: String
 }
 
 input ExampleCreateManyWithoutDescriptionInput {
@@ -253,6 +255,7 @@ input ExampleCreateWithoutDescriptionInput {
   ja: String!
   updatedAt: DateTime
   vn: String!
+  voice: String
 }
 
 input ExampleScalarWhereInput {
@@ -266,6 +269,7 @@ input ExampleScalarWhereInput {
   OR: [ExampleScalarWhereInput!]
   updatedAt: DateTimeFilter
   vn: StringFilter
+  voice: StringNullableFilter
 }
 
 input ExampleUpdateInput {
@@ -275,6 +279,7 @@ input ExampleUpdateInput {
   ja: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   vn: StringFieldUpdateOperationsInput
+  voice: NullableStringFieldUpdateOperationsInput
 }
 
 input ExampleUpdateManyMutationInput {
@@ -283,6 +288,7 @@ input ExampleUpdateManyMutationInput {
   ja: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   vn: StringFieldUpdateOperationsInput
+  voice: NullableStringFieldUpdateOperationsInput
 }
 
 input ExampleUpdateManyWithoutDescriptionInput {
@@ -309,6 +315,7 @@ input ExampleUpdateWithoutDescriptionInput {
   ja: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   vn: StringFieldUpdateOperationsInput
+  voice: NullableStringFieldUpdateOperationsInput
 }
 
 input ExampleUpdateWithWhereUniqueWithoutDescriptionInput {
@@ -407,8 +414,26 @@ input NestedStringFilter {
   startsWith: String
 }
 
+input NestedStringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringNullableFilter
+  notIn: [String!]
+  startsWith: String
+}
+
 input NullableDateTimeFieldUpdateOperationsInput {
   set: DateTime
+}
+
+input NullableStringFieldUpdateOperationsInput {
+  set: String
 }
 
 enum PartsOfSpeech {
@@ -462,6 +487,21 @@ input StringFilter {
   startsWith: String
 }
 
+input StringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: NestedStringNullableFilter
+  notIn: [String!]
+  startsWith: String
+}
+
 input StringNullableListFilter {
   equals: [String!]
 }
@@ -503,6 +543,7 @@ type Word {
   id: Int!
   name: String!
   updatedAt: DateTime!
+  voice: String
   wordDeck: WordDeck!
   wordDeckId: Int!
 }
@@ -585,6 +626,7 @@ input WordCreateInput {
   descriptions: DescriptionCreateManyWithoutWordInput
   name: String!
   updatedAt: DateTime
+  voice: String
   wordDeck: WordDeckCreateOneWithoutWordsInput!
 }
 
@@ -615,6 +657,7 @@ input WordCreateWithoutDescriptionsInput {
   deletedAt: DateTime
   name: String!
   updatedAt: DateTime
+  voice: String
   wordDeck: WordDeckCreateOneWithoutWordsInput!
 }
 
@@ -624,6 +667,7 @@ input WordCreateWithoutWordDeckInput {
   descriptions: DescriptionCreateManyWithoutWordInput
   name: String!
   updatedAt: DateTime
+  voice: String
 }
 
 type WordDeck {
@@ -792,6 +836,7 @@ input WordScalarWhereInput {
   NOT: [WordScalarWhereInput!]
   OR: [WordScalarWhereInput!]
   updatedAt: DateTimeFilter
+  voice: StringNullableFilter
   wordDeckId: IntFilter
 }
 
@@ -801,6 +846,7 @@ input WordUpdateInput {
   descriptions: DescriptionUpdateManyWithoutWordInput
   name: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+  voice: NullableStringFieldUpdateOperationsInput
   wordDeck: WordDeckUpdateOneRequiredWithoutWordsInput
 }
 
@@ -809,6 +855,7 @@ input WordUpdateManyMutationInput {
   deletedAt: NullableDateTimeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+  voice: NullableStringFieldUpdateOperationsInput
 }
 
 input WordUpdateManyWithoutWordDeckInput {
@@ -842,6 +889,7 @@ input WordUpdateWithoutDescriptionsInput {
   deletedAt: NullableDateTimeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+  voice: NullableStringFieldUpdateOperationsInput
   wordDeck: WordDeckUpdateOneRequiredWithoutWordsInput
 }
 
@@ -851,6 +899,7 @@ input WordUpdateWithoutWordDeckInput {
   descriptions: DescriptionUpdateManyWithoutWordInput
   name: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+  voice: NullableStringFieldUpdateOperationsInput
 }
 
 input WordUpdateWithWhereUniqueWithoutWordDeckInput {

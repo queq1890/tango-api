@@ -5,6 +5,7 @@ export const Word = objectType({
   definition(t) {
     t.model.id();
     t.model.name();
+    t.model.voice();
     t.model.descriptions();
     t.model.wordDeck();
     t.model.wordDeckId();
