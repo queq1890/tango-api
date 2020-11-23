@@ -670,7 +670,7 @@ export interface NexusGenInputs {
 }
 
 export interface NexusGenEnums {
-  PartsOfSpeech: "ADJECTIVE" | "ADVERB" | "CONJUNCTION" | "INTERJUNCTION" | "NOUN" | "PREPOSITION" | "PRONOUN" | "VERB"
+  PartsOfSpeech: "ADJECTIVE" | "ADVERB" | "CONJUNCTION" | "INTERJUNCTION" | "INTERROGATIVE" | "NOUN" | "PREPOSITION" | "PRONOUN" | "VERB"
   QueryMode: "default" | "insensitive"
 }
 
