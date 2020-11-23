@@ -423,11 +423,16 @@ enum PartsOfSpeech {
 }
 
 type Query {
+  description(where: DescriptionWhereUniqueInput!): Description
   descriptions(after: DescriptionWhereUniqueInput, before: DescriptionWhereUniqueInput, first: Int, last: Int): [Description!]!
+  example(where: ExampleWhereUniqueInput!): Example
   examples(after: ExampleWhereUniqueInput, before: ExampleWhereUniqueInput, first: Int, last: Int): [Example!]!
   me: User
   users: [User]
+  word(where: WordWhereUniqueInput!): Word
+  wordBook(where: WordBookWhereUniqueInput!): WordBook
   wordBooks(after: WordBookWhereUniqueInput, before: WordBookWhereUniqueInput, first: Int, last: Int): [WordBook!]!
+  wordDeck(where: WordDeckWhereUniqueInput!): WordDeck
   wordDecks(after: WordDeckWhereUniqueInput, before: WordDeckWhereUniqueInput, first: Int, last: Int): [WordDeck!]!
   words(after: WordWhereUniqueInput, before: WordWhereUniqueInput, first: Int, last: Int): [Word!]!
 }

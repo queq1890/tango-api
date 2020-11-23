@@ -899,11 +899,16 @@ export interface NexusGenFieldTypes {
     updateProfile: NexusGenRootTypes['User'] | null; // User
   }
   Query: { // field return type
+    description: NexusGenRootTypes['Description'] | null; // Description
     descriptions: NexusGenRootTypes['Description'][]; // [Description!]!
+    example: NexusGenRootTypes['Example'] | null; // Example
     examples: NexusGenRootTypes['Example'][]; // [Example!]!
     me: NexusGenRootTypes['User'] | null; // User
     users: Array<NexusGenRootTypes['User'] | null> | null; // [User]
+    word: NexusGenRootTypes['Word'] | null; // Word
+    wordBook: NexusGenRootTypes['WordBook'] | null; // WordBook
     wordBooks: NexusGenRootTypes['WordBook'][]; // [WordBook!]!
+    wordDeck: NexusGenRootTypes['WordDeck'] | null; // WordDeck
     wordDecks: NexusGenRootTypes['WordDeck'][]; // [WordDeck!]!
     words: NexusGenRootTypes['Word'][]; // [Word!]!
   }
@@ -993,11 +998,16 @@ export interface NexusGenFieldTypeNames {
     updateProfile: 'User'
   }
   Query: { // field return type name
+    description: 'Description'
     descriptions: 'Description'
+    example: 'Example'
     examples: 'Example'
     me: 'User'
     users: 'User'
+    word: 'Word'
+    wordBook: 'WordBook'
     wordBooks: 'WordBook'
+    wordDeck: 'WordDeck'
     wordDecks: 'WordDeck'
     words: 'Word'
   }
@@ -1102,11 +1112,17 @@ export interface NexusGenArgTypes {
     }
   }
   Query: {
+    description: { // args
+      where: NexusGenInputs['DescriptionWhereUniqueInput']; // DescriptionWhereUniqueInput!
+    }
     descriptions: { // args
       after?: NexusGenInputs['DescriptionWhereUniqueInput'] | null; // DescriptionWhereUniqueInput
       before?: NexusGenInputs['DescriptionWhereUniqueInput'] | null; // DescriptionWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
+    }
+    example: { // args
+      where: NexusGenInputs['ExampleWhereUniqueInput']; // ExampleWhereUniqueInput!
     }
     examples: { // args
       after?: NexusGenInputs['ExampleWhereUniqueInput'] | null; // ExampleWhereUniqueInput
@@ -1114,11 +1130,20 @@ export interface NexusGenArgTypes {
       first?: number | null; // Int
       last?: number | null; // Int
     }
+    word: { // args
+      where: NexusGenInputs['WordWhereUniqueInput']; // WordWhereUniqueInput!
+    }
+    wordBook: { // args
+      where: NexusGenInputs['WordBookWhereUniqueInput']; // WordBookWhereUniqueInput!
+    }
     wordBooks: { // args
       after?: NexusGenInputs['WordBookWhereUniqueInput'] | null; // WordBookWhereUniqueInput
       before?: NexusGenInputs['WordBookWhereUniqueInput'] | null; // WordBookWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
+    }
+    wordDeck: { // args
+      where: NexusGenInputs['WordDeckWhereUniqueInput']; // WordDeckWhereUniqueInput!
     }
     wordDecks: { // args
       after?: NexusGenInputs['WordDeckWhereUniqueInput'] | null; // WordDeckWhereUniqueInput
