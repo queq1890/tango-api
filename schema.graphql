@@ -542,6 +542,7 @@ type Word {
   descriptions(after: DescriptionWhereUniqueInput, before: DescriptionWhereUniqueInput, first: Int, last: Int): [Description!]!
   id: Int!
   name: String!
+  sinoVietnamese: String
   updatedAt: DateTime!
   voice: String
   wordDeck: WordDeck!
@@ -625,6 +626,7 @@ input WordCreateInput {
   deletedAt: DateTime
   descriptions: DescriptionCreateManyWithoutWordInput
   name: String!
+  sinoVietnamese: String
   updatedAt: DateTime
   voice: String
   wordDeck: WordDeckCreateOneWithoutWordsInput!
@@ -656,6 +658,7 @@ input WordCreateWithoutDescriptionsInput {
   createdAt: DateTime
   deletedAt: DateTime
   name: String!
+  sinoVietnamese: String
   updatedAt: DateTime
   voice: String
   wordDeck: WordDeckCreateOneWithoutWordsInput!
@@ -666,6 +669,7 @@ input WordCreateWithoutWordDeckInput {
   deletedAt: DateTime
   descriptions: DescriptionCreateManyWithoutWordInput
   name: String!
+  sinoVietnamese: String
   updatedAt: DateTime
   voice: String
 }
@@ -835,6 +839,7 @@ input WordScalarWhereInput {
   name: StringFilter
   NOT: [WordScalarWhereInput!]
   OR: [WordScalarWhereInput!]
+  sinoVietnamese: StringNullableFilter
   updatedAt: DateTimeFilter
   voice: StringNullableFilter
   wordDeckId: IntFilter
@@ -845,6 +850,7 @@ input WordUpdateInput {
   deletedAt: NullableDateTimeFieldUpdateOperationsInput
   descriptions: DescriptionUpdateManyWithoutWordInput
   name: StringFieldUpdateOperationsInput
+  sinoVietnamese: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   voice: NullableStringFieldUpdateOperationsInput
   wordDeck: WordDeckUpdateOneRequiredWithoutWordsInput
@@ -854,6 +860,7 @@ input WordUpdateManyMutationInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   deletedAt: NullableDateTimeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
+  sinoVietnamese: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   voice: NullableStringFieldUpdateOperationsInput
 }
@@ -888,6 +895,7 @@ input WordUpdateWithoutDescriptionsInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   deletedAt: NullableDateTimeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
+  sinoVietnamese: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   voice: NullableStringFieldUpdateOperationsInput
   wordDeck: WordDeckUpdateOneRequiredWithoutWordsInput
@@ -898,6 +906,7 @@ input WordUpdateWithoutWordDeckInput {
   deletedAt: NullableDateTimeFieldUpdateOperationsInput
   descriptions: DescriptionUpdateManyWithoutWordInput
   name: StringFieldUpdateOperationsInput
+  sinoVietnamese: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   voice: NullableStringFieldUpdateOperationsInput
 }

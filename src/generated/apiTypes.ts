@@ -464,6 +464,7 @@ export interface NexusGenInputs {
     deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     descriptions?: NexusGenInputs['DescriptionCreateManyWithoutWordInput'] | null; // DescriptionCreateManyWithoutWordInput
     name: string; // String!
+    sinoVietnamese?: string | null; // String
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     voice?: string | null; // String
     wordDeck: NexusGenInputs['WordDeckCreateOneWithoutWordsInput']; // WordDeckCreateOneWithoutWordsInput!
@@ -490,6 +491,7 @@ export interface NexusGenInputs {
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     name: string; // String!
+    sinoVietnamese?: string | null; // String
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     voice?: string | null; // String
     wordDeck: NexusGenInputs['WordDeckCreateOneWithoutWordsInput']; // WordDeckCreateOneWithoutWordsInput!
@@ -499,6 +501,7 @@ export interface NexusGenInputs {
     deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     descriptions?: NexusGenInputs['DescriptionCreateManyWithoutWordInput'] | null; // DescriptionCreateManyWithoutWordInput
     name: string; // String!
+    sinoVietnamese?: string | null; // String
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     voice?: string | null; // String
   }
@@ -636,6 +639,7 @@ export interface NexusGenInputs {
     name?: NexusGenInputs['StringFilter'] | null; // StringFilter
     NOT?: NexusGenInputs['WordScalarWhereInput'][] | null; // [WordScalarWhereInput!]
     OR?: NexusGenInputs['WordScalarWhereInput'][] | null; // [WordScalarWhereInput!]
+    sinoVietnamese?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
     voice?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     wordDeckId?: NexusGenInputs['IntFilter'] | null; // IntFilter
@@ -645,6 +649,7 @@ export interface NexusGenInputs {
     deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
     descriptions?: NexusGenInputs['DescriptionUpdateManyWithoutWordInput'] | null; // DescriptionUpdateManyWithoutWordInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    sinoVietnamese?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     voice?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     wordDeck?: NexusGenInputs['WordDeckUpdateOneRequiredWithoutWordsInput'] | null; // WordDeckUpdateOneRequiredWithoutWordsInput
@@ -653,6 +658,7 @@ export interface NexusGenInputs {
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    sinoVietnamese?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     voice?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   }
@@ -687,6 +693,7 @@ export interface NexusGenInputs {
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    sinoVietnamese?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     voice?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     wordDeck?: NexusGenInputs['WordDeckUpdateOneRequiredWithoutWordsInput'] | null; // WordDeckUpdateOneRequiredWithoutWordsInput
@@ -696,6 +703,7 @@ export interface NexusGenInputs {
     deletedAt?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
     descriptions?: NexusGenInputs['DescriptionUpdateManyWithoutWordInput'] | null; // DescriptionUpdateManyWithoutWordInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    sinoVietnamese?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     voice?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   }
@@ -769,6 +777,7 @@ export interface NexusGenRootTypes {
     deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     id: number; // Int!
     name: string; // String!
+    sinoVietnamese?: string | null; // String
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
     voice?: string | null; // String
     wordDeckId: number; // Int!
@@ -980,6 +989,7 @@ export interface NexusGenFieldTypes {
     descriptions: NexusGenRootTypes['Description'][]; // [Description!]!
     id: number; // Int!
     name: string; // String!
+    sinoVietnamese: string | null; // String
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
     voice: string | null; // String
     wordDeck: NexusGenRootTypes['WordDeck']; // WordDeck!
@@ -1081,6 +1091,7 @@ export interface NexusGenFieldTypeNames {
     descriptions: 'Description'
     id: 'Int'
     name: 'String'
+    sinoVietnamese: 'String'
     updatedAt: 'DateTime'
     voice: 'String'
     wordDeck: 'WordDeck'
